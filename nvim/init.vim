@@ -1,5 +1,10 @@
 lua require("tej")
 
+" PERSONAL COMMANDS
+" Set tabs 
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " Set relative and absolute lines numbers
 set nu rnu
