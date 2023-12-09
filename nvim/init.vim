@@ -1,4 +1,4 @@
-lua require('init')
+lua require("tej")
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
