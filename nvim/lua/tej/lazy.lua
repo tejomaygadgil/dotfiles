@@ -13,7 +13,16 @@ vim.opt.rtp:prepend(lazypath)
  
 require("lazy").setup({
     {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        vim.cmd([[colorscheme tokyonight-night]])
+    end,
+    opts = {},
+    },
+    {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-    }
+    dependencies = { 'nvim-lua/plenary.nvim' }
+    }, 
 })
