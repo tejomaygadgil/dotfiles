@@ -1,1 +1,1 @@
-ln -rs ./nvim/ ~/.config/nvim
+ln -rsf ./nvim/ ~/.config/nvim
