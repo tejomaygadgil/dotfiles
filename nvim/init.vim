@@ -1,6 +1,9 @@
 lua require("tej")
 
 " PERSONAL COMMANDS
+" Don't jump back when exiting search
+set cpoptions+=x
+
 " Set tabs 
 set tabstop=4
 set shiftwidth=4
