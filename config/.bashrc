@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Reset bash
+alias eb='exec bash'
+
 # Change default directory
 alias dd='cd /home/tejomay/workspace'
 dd
@@ -16,6 +19,7 @@ alias te='cd /home/tejomay/workspace/git/tejomaygadgil.github.io'
 alias gi='cd /home/tejomay/workspace/git'
 alias no='cd /home/tejomay/workspace/notes'
 alias dot='cd /home/tejomay/workspace/git/dotfiles'
+alias wu='cd /home/tejomay/workspace/git/wozu'
 
 # bash auto-completion
 if [ -f /etc/bash_completion ]; then
