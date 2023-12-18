@@ -8,3 +8,5 @@
 [user]
     email = tejomaygadgil@gmail.com
     name = Tejomay Gadgil
+[core]
+	editor = nvim
