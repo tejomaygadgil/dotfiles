@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Micro-rest
+alias mr='~/workspace/git/micro-rest/micro-rest.sh'
+
 # Reset bash
 alias eb='exec bash'
 
