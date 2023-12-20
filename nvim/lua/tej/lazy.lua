@@ -10,8 +10,8 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
- 
-require("lazy").setup({
+require("lazy").setup(
+  {
     {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -70,4 +70,7 @@ require("lazy").setup({
     {
         "mbbill/undotree",
     },
-})
+  {
+    checker = { enabled = true }, -- Check for updates
+  }
+)
