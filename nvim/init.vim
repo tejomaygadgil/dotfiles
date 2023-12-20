@@ -17,9 +17,10 @@ nmap <silent> <c-l> :wincmd l<CR>
 set cpoptions+=x
 
 " Set tabs 
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
+set autoindent
 
 " Remove search highlighting
 set nohlsearch
