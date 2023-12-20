@@ -1,4 +1,3 @@
-require("tej.remap")
 require("tej.lazy")
 
 -- Open telescope if no files are opened.
