@@ -13,62 +13,62 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
   {
     {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-        vim.cmd([[colorscheme tokyonight-night]])
-    end,
-    opts = {},
-    },
-    {
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts={
-        defaults = {
-            initial_mode = "normal",
-            }
-        },
-    }, 
-    {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function () 
-      local configs = require("nvim-treesitter.configs")
-
-      configs.setup({
-          ensure_installed = { 
-                    "c", 
-                    "lua", 
-                    "vim",
-                    "vimdoc",
-                    "html",
-                    "python",
-                    "csv",
-                    "css",
-                    "json",
-                    "latex",
-                    "markdown",
-                    "markdown_inline",
-                    "php",
-                    "r",
-                    "sql",
-                    "tsv",
-                    "yaml",
-                },
-
-          sync_install = true,
-          auto_install = true,
-          highlight = { 
-            enable = true,
-            additional_vim_regex_highlighting = false,
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      config = function()
+          vim.cmd([[colorscheme tokyonight-night]])
+      end,
+      opts = {},
+      },
+      {
+      'nvim-telescope/telescope.nvim', tag = '0.1.5',
+      dependencies = { 'nvim-lua/plenary.nvim' },
+      opts={
+          defaults = {
+              initial_mode = "normal",
+              }
           },
-          indent = { enable = true },  
-        })
-    end
     }, 
     {
-        "mbbill/undotree",
+      "nvim-treesitter/nvim-treesitter",
+      build = ":TSUpdate",
+      config = function () 
+        local configs = require("nvim-treesitter.configs")
+
+        configs.setup({
+            ensure_installed = { 
+                      "c", 
+                      "lua", 
+                      "vim",
+                      "vimdoc",
+                      "html",
+                      "python",
+                      "csv",
+                      "css",
+                      "json",
+                      "latex",
+                      "markdown",
+                      "markdown_inline",
+                      "php",
+                      "r",
+                      "sql",
+                      "tsv",
+                      "yaml",
+                  },
+
+            sync_install = true,
+            auto_install = true,
+            highlight = { 
+              enable = true,
+              additional_vim_regex_highlighting = false,
+            },
+            indent = { enable = true },  
+          })
+      end,
+    }, 
+    {
+      "mbbill/undotree",
     },
   },
   {
