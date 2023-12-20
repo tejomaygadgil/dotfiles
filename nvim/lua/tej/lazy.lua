@@ -70,6 +70,7 @@ require("lazy").setup(
     {
         "mbbill/undotree",
     },
+  },
   {
     checker = { enabled = true }, -- Check for updates
   }
