@@ -4,7 +4,8 @@
 
 # Micro-rest
 alias mr='~/workspace/git/micro-rest/micro-rest.sh'
-
+# Wozu
+alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
 # Reset bash
 alias eb='exec bash'
 
