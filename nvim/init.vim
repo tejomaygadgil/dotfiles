@@ -1,6 +1,5 @@
 lua require("tej")
 
-" PERSONAL COMMANDS
 " Natural split openings
 " https://thoughtbot.com/blog/vim-splits-move-faster-and-more-naturally
 set splitbelow
