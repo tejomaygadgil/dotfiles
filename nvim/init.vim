@@ -22,9 +22,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-" Improve search
+" Remove search highlighting
 set nohlsearch
-set incsearch
 
 " Improve scroll
 set scrolloff=8
