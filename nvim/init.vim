@@ -1,5 +1,8 @@
 lua require("tej")
 
+" Complete menu options
+set completeopt=menu,preview,noinsert
+
 " Natural split openings
 " https://thoughtbot.com/blog/vim-splits-move-faster-and-more-naturally
 set splitbelow
