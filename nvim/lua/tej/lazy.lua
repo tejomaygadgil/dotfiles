@@ -1,22 +1,22 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
     lazypath,
   })
 end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(
+require('lazy').setup(
   {
     {
-      "folke/tokyonight.nvim",
+      'folke/tokyonight.nvim',
       lazy = false,
       priority = 1000,
       config = function()
@@ -30,35 +30,35 @@ require("lazy").setup(
       dependencies = { 'nvim-lua/plenary.nvim' },
       opts = {
         defaults = {
-          initial_mode = "normal",
+          initial_mode = 'normal',
         }
       },
     },
     {
-      "nvim-treesitter/nvim-treesitter",
-      build = ":TSUpdate",
+      'nvim-treesitter/nvim-treesitter',
+      build = ':TSUpdate',
       config = function()
-        local configs = require("nvim-treesitter.configs")
+        local configs = require('nvim-treesitter.configs')
 
         configs.setup({
           ensure_installed = {
-            "c",
-            "lua",
-            "vim",
-            "vimdoc",
-            "html",
-            "python",
-            "csv",
-            "css",
-            "json",
-            "latex",
-            "markdown",
-            "markdown_inline",
-            "php",
-            "r",
-            "sql",
-            "tsv",
-            "yaml",
+            'c',
+            'lua',
+            'vim',
+            'vimdoc',
+            'html',
+            'python',
+            'csv',
+            'css',
+            'json',
+            'latex',
+            'markdown',
+            'markdown_inline',
+            'php',
+            'r',
+            'sql',
+            'tsv',
+            'yaml',
           },
 
           sync_install = true,
@@ -72,7 +72,7 @@ require("lazy").setup(
       end,
     },
     {
-      "mbbill/undotree",
+      'mbbill/undotree',
     },
     -- LSP
     { 'williamboman/mason.nvim' },
@@ -115,9 +115,9 @@ end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
-    "lua_ls",
-    "pyright",
-    "ruff_lsp",
+    'lua_ls',
+    'pyright',
+    'ruff_lsp',
   },
   handlers = {
     lsp_zero.default_setup,
