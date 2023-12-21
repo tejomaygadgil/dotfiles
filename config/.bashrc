@@ -2,17 +2,17 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# Run apps
-alias mr='~/workspace/git/micro-rest/micro-rest.sh'
-alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
-alias rb='~/workspace/git/dotfiles/reset_audio.sh'
+# Change default directory
+alias dd='cd /home/tejomay/workspace'
+dd
 
 # Reset bash
 alias eb='exec bash'
 
-# Change default directory
-alias dd='cd /home/tejomay/workspace'
-dd
+# Apps
+alias mr='~/workspace/git/micro-rest/micro-rest.sh'
+alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
+alias rb='~/workspace/git/dotfiles/reset_audio.sh'
 
 # Configs
 alias rc='nvim /home/tejomay/.bashrc'
