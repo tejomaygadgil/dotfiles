@@ -14,8 +14,17 @@ end, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 
--- Open file explorer
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+-- Git signs
+local gs = require('gitsigns')
+vim.keymap.set({ 'n', 'v' }, '<leader>gs', ':Gitsigns stage_hunk<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>gr', ':Gitsigns reset_hunk<CR>')
+vim.keymap.set('n', '<leader>gS', gs.stage_buffer)
+vim.keymap.set('n', '<leader>gu', gs.undo_stage_hunk)
+vim.keymap.set('n', '<leader>gR', gs.reset_buffer)
+vim.keymap.set('n', '<leader>gp', gs.preview_hunk)
+vim.keymap.set('n', '<leader>gb', function() gs.blame_line({ full = true }) end)
+vim.keymap.set('n', '<leader>gd', gs.diffthis)
+vim.keymap.set('n', '<leader>gD', function() gs.diffthis('~') end)
 
 -- InspectTree
 vim.keymap.set('n', '<leader>t', vim.cmd.InspectTree, {})
