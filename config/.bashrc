@@ -2,10 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# Micro-rest
+# Run apps
 alias mr='~/workspace/git/micro-rest/micro-rest.sh'
-# Wozu
 alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
+alias rb='~/workspace/git/dotfiles/reset_audio.sh'
+
 # Reset bash
 alias eb='exec bash'
 
