@@ -74,6 +74,9 @@ require('lazy').setup(
     {
       'mbbill/undotree',
     },
+    {
+      'jpalardy/vim-slime',
+    },
     -- LSP
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
