@@ -24,6 +24,7 @@ alias te='cd /home/tejomay/workspace/git/tejomaygadgil.github.io'
 alias gi='cd /home/tejomay/workspace/git'
 alias no='cd /home/tejomay/workspace/notes'
 alias dot='cd /home/tejomay/workspace/git/dotfiles'
+alias cff='cd /home/tejomay/workspace/git/cff_webscraping'
 
 # bash auto-completion
 if [ -f /etc/bash_completion ]; then
