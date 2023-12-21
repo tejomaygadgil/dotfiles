@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -9,7 +10,9 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
+
 require("lazy").setup(
   {
     {
@@ -17,61 +20,135 @@ require("lazy").setup(
       lazy = false,
       priority = 1000,
       config = function()
-          vim.cmd([[colorscheme tokyonight-night]])
+        vim.cmd([[colorscheme tokyonight-night]])
       end,
       opts = {},
-      },
-      {
-      'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    },
+    {
+      'nvim-telescope/telescope.nvim',
+      tag = '0.1.5',
       dependencies = { 'nvim-lua/plenary.nvim' },
-      opts={
-          defaults = {
-              initial_mode = "normal",
-              }
-          },
-    }, 
+      opts = {
+        defaults = {
+          initial_mode = "normal",
+        }
+      },
+    },
     {
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
-      config = function () 
+      config = function()
         local configs = require("nvim-treesitter.configs")
 
         configs.setup({
-            ensure_installed = { 
-                      "c", 
-                      "lua", 
-                      "vim",
-                      "vimdoc",
-                      "html",
-                      "python",
-                      "csv",
-                      "css",
-                      "json",
-                      "latex",
-                      "markdown",
-                      "markdown_inline",
-                      "php",
-                      "r",
-                      "sql",
-                      "tsv",
-                      "yaml",
-                  },
+          ensure_installed = {
+            "c",
+            "lua",
+            "vim",
+            "vimdoc",
+            "html",
+            "python",
+            "csv",
+            "css",
+            "json",
+            "latex",
+            "markdown",
+            "markdown_inline",
+            "php",
+            "r",
+            "sql",
+            "tsv",
+            "yaml",
+          },
 
-            sync_install = true,
-            auto_install = true,
-            highlight = { 
-              enable = true,
-              additional_vim_regex_highlighting = false,
-            },
-            indent = { enable = true },  
-          })
+          sync_install = true,
+          auto_install = true,
+          highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = false,
+          },
+          indent = { enable = true },
+        })
       end,
-    }, 
+    },
     {
       "mbbill/undotree",
+    },
+    -- LSP
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
+    {
+      'VonHeikemen/lsp-zero.nvim',
+      branch = 'v3.x',
+      lazy = true,
+      config = false,
+    },
+    {
+      'neovim/nvim-lspconfig',
+      dependencies = {
+        { 'hrsh7th/cmp-nvim-lsp' },
+      }
+    },
+    {
+      'hrsh7th/nvim-cmp',
+      dependencies = {
+        { 'L3MON4D3/LuaSnip' }
+      },
     },
   },
   {
     checker = { enabled = true }, -- Check for updates
   }
 )
+
+---
+-- LSP setup
+---
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({ buffer = bufnr })
+end)
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    "lua_ls",
+    "pyright",
+    "ruff_lsp",
+  },
+  handlers = {
+    lsp_zero.default_setup,
+    lua_ls = function()
+      -- (Optional) configure lua language server
+      local lua_opts = lsp_zero.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+  }
+})
+
+---
+-- Autocompletion config
+---
+local cmp = require('cmp')
+local cmp_action = lsp_zero.cmp_action()
+
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    -- `Enter` key to confirm completion
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+
+    -- Ctrl+Space to trigger completion menu
+    ['<C-Space>'] = cmp.mapping.complete(),
+
+    -- Navigate between snippet placeholder
+    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+
+    -- Scroll up and down in the completion documentation
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+  })
+})
