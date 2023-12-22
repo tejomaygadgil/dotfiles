@@ -11,9 +11,13 @@ vim.keymap.set('n', '<leader>ff', function()
     hidden = true,
   })
 end, {})
+vim.keymap.set('n', '<leader>fr', ':Telescope oldfiles<CR>', {})
 vim.keymap.set('n', '<leader>s', ts.live_grep, {})
 vim.keymap.set('n', '<leader>b', ts.buffers, {})
 vim.keymap.set('n', '<leader>tt', ':Telescope<CR>', {})
+
+-- Easy picker
+vim.keymap.set('n', '<leader>ge', ':Easypick unstaged_changes<CR>', {})
 
 -- Git signs
 local gs = require('gitsigns')

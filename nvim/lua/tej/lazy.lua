@@ -35,6 +35,23 @@ require('lazy').setup(
       },
     },
     {
+      'axkirillov/easypick.nvim',
+      dependencies = { 'nvim-telescope/telescope.nvim' },
+      config = function()
+        local easypick = require('easypick')
+
+        easypick.setup({
+          pickers = {
+            {
+              name = "unstaged_changes",
+              command = "git diff --name-only",
+              previewer = easypick.previewers.branch_diff({ base_branch = "main" })
+            }
+          },
+        })
+      end,
+    },
+    {
       'nvim-treesitter/nvim-treesitter',
       build = ':TSUpdate',
       config = function()
