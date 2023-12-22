@@ -1,5 +1,8 @@
 lua require("tej")
 
+" Spelling
+setlocal spell spelllang=en_us
+
 " Vim slime
 let g:slime_target = "tmux"
 
