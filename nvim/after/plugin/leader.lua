@@ -11,7 +11,7 @@ vim.keymap.set('n', '<leader>ff', function()
     hidden = true,
   })
 end, {})
-vim.keymap.set('n', '<leader>fr', ':Telescope oldfiles<CR>', {})
+vim.keymap.set('n', '<leader>fe', ':Telescope oldfiles<CR>', {})
 vim.keymap.set('n', '<leader>s', ts.live_grep, {})
 vim.keymap.set('n', '<leader>b', ts.buffers, {})
 vim.keymap.set('n', '<leader>tt', ':Telescope<CR>', {})
