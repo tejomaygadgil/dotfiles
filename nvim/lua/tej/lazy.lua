@@ -31,7 +31,9 @@ require('lazy').setup(
       opts = {
         defaults = {
           initial_mode = 'normal',
-        }
+          layout_strategy = 'vertical',
+          preview_cutoff = 0,
+        },
       },
     },
     {
