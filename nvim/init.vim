@@ -3,6 +3,9 @@ lua require("tej")
 " Vim slime
 let g:slime_target = "tmux"
 
+" Undotree
+let g:undotree_SetFocusWhenToggle = 1
+
 " Complete menu options
 set completeopt=menu,preview,noinsert
 
