@@ -19,6 +19,9 @@ vim.keymap.set('n', '<leader>tt', ':Telescope<CR>', {})
 -- Easy picker
 vim.keymap.set('n', '<leader>ge', ':Easypick unstaged_changes<CR>', {})
 
+-- Lazygit
+vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>', {})
+
 -- Git signs
 local gs = require('gitsigns')
 vim.keymap.set({ 'n', 'v' }, '<leader>gs', ':Gitsigns stage_hunk<CR>')
