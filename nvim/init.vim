@@ -1,5 +1,12 @@
 lua require("tej")
 
+" Jump to the last position when reopening a file
+" https://stackoverflow.com/a/774599
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g`\"" | endif
+endif
+
 " Swap mappings of f and F with / and ?
 nnoremap F ?
 nnoremap ? F
