@@ -1,5 +1,15 @@
 lua require("tej")
 
+" Swap mappings of f and F with / and ?
+nnoremap F ?
+nnoremap ? F
+vnoremap F ?
+vnoremap ? F
+nnoremap f /
+nnoremap / f
+vnoremap f /
+vnoremap / f
+
 " Spelling
 setlocal spell spelllang=en_us
 
