@@ -13,6 +13,7 @@ alias eb='exec bash'
 alias mr='~/workspace/git/micro-rest/micro-rest.sh'
 alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
 alias rb='~/workspace/git/dotfiles/reset_audio.sh'
+alias lg='lazygit'
 
 # Configs
 alias rc='nvim /home/tejomay/.bashrc'
