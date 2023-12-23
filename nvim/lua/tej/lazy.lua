@@ -120,7 +120,18 @@ require('lazy').setup(
             enable = true,
             additional_vim_regex_highlighting = false,
           },
-          indent = { enable = true },
+          indent = {
+            enable = true
+          },
+          incremental_selection = {
+            enable = true,
+            keymaps = {
+              init_selection = '<c-space>',
+              node_incremental = '<c-space>',
+              scope_incremental = '<c-w>',
+              node_decremental = '<c-r>',
+            },
+          },
         })
       end,
     },
