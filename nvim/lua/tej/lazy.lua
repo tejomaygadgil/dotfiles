@@ -25,33 +25,7 @@ require('lazy').setup(
       opts = {},
     },
     {
-      'nvim-telescope/telescope.nvim',
-      tag = '0.1.5',
-      dependencies = { 'nvim-lua/plenary.nvim' },
-      opts = {
-        defaults = {
-          initial_mode = 'normal',
-          layout_strategy = 'vertical',
-          preview_cutoff = 0,
-        },
-      },
-    },
-    {
-      'axkirillov/easypick.nvim',
-      dependencies = { 'nvim-telescope/telescope.nvim' },
-      config = function()
-        local easypick = require('easypick')
-
-        easypick.setup({
-          pickers = {
-            {
-              name = "unstaged_changes",
-              command = "git diff --name-only",
-              previewer = easypick.previewers.branch_diff({ base_branch = "main" })
-            }
-          },
-        })
-      end,
+      'numToStr/Comment.nvim', opts = {}
     },
     {
       'lewis6991/gitsigns.nvim',
