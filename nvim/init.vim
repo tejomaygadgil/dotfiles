@@ -55,6 +55,8 @@ set scrolloff=8
 
 " Set relative and absolute lines numbers
 set nu rnu
+autocmd InsertEnter * :set nornu
+autocmd InsertLeave * :set nu rnu
 
 " Disable arrow keys
 for key in ['<Up>', '<Down>', '<Left>', '<Right>']
