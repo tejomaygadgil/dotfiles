@@ -22,6 +22,8 @@ setlocal spell spelllang=en_us
 
 " Vim slime
 let g:slime_target = "tmux"
+" Fix for ipython %cpaste
+let g:slime_bracketed_paste = 1
 
 " Undotree
 let g:undotree_SetFocusWhenToggle = 1
