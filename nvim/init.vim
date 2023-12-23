@@ -36,6 +36,10 @@ set autoindent
 " Remove search highlighting
 set nohlsearch
 
+" Ignore case
+set ignorecase
+set smartcase 
+
 " Improve scroll
 set scrolloff=8
 
