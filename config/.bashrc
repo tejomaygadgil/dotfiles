@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Set vim mode (!)
+set -o vi
+
 # Set scrolling for MS keyboard
  xinput --set-prop "Microsoft Microsoft® Nano Transceiver v2.0 Mouse" "libinput Natural Scrolling Enabled" 1
 
@@ -41,7 +44,6 @@ then
 fi
 
 # fzf ctrl+r 
-source /usr/share/doc/fzf/examples/key-bindings.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # If not running interactively, don't do anything
