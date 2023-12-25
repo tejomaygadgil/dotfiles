@@ -2,8 +2,12 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Set editor to nvim
+export EDITOR=nvim
+
 # Set vim mode (!)
 set -o vi
+set show-mode-in-prompt on
 
 # Set scrolling for MS keyboard
  xinput --set-prop "Microsoft Microsoft® Nano Transceiver v2.0 Mouse" "libinput Natural Scrolling Enabled" 1
