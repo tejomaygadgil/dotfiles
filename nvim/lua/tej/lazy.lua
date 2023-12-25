@@ -222,3 +222,6 @@ cmp.setup({
     ['<C-d>'] = cmp.mapping.scroll_docs(1),
   })
 })
+
+-- Auto update Lazy
+vim.api.nvim_create_autocmd("VimEnter", { callback = function() require "lazy".update({ show = false }) end })
