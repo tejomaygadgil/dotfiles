@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Set scrolling for MS keyboard
+ xinput --set-prop "Microsoft Microsoft® Nano Transceiver v2.0 Mouse" "libinput Natural Scrolling Enabled" 1
+
 # Change default directory
 alias dd='cd /home/tejomay/workspace'
 dd
