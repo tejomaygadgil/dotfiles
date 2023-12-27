@@ -7,6 +7,12 @@ if has("autocmd")
     \| exe "normal! g`\"" | endif
 endif
 
+" Add new line above and below without entering insert mode
+" https://stackoverflow.com/a/16136133
+nmap oo o<Esc>
+nmap OO O<Esc>
+set timeoutlen=200
+
 " Swap mappings of f and F with / and ?
 nnoremap F ?
 nnoremap ? F
