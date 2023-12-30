@@ -11,17 +11,7 @@ endif
 " https://stackoverflow.com/a/16136133
 nmap oo o<Esc>
 nmap OO O<Esc>
-set timeoutlen=200
-
-" Swap mappings of f and F with / and ?
-nnoremap F ?
-nnoremap ? F
-vnoremap F ?
-vnoremap ? F
-nnoremap f /
-nnoremap / f
-vnoremap f /
-vnoremap / f
+set timeoutlen=300
 
 " Spelling
 setlocal spell spelllang=en_us
