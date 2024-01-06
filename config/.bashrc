@@ -24,16 +24,11 @@ alias lg='lazygit'
 
 # Configs
 alias rc='nvim /home/tejomay/.bashrc'
-alias tm='nvim ~/.tmux.conf'
 
 # Directories
-alias re='cd /home/tejomay/workspace/git/retrait'
-alias te='cd /home/tejomay/workspace/git/tejomaygadgil.github.io'
-alias gi='cd /home/tejomay/workspace/git'
 alias no='cd /home/tejomay/workspace/notes'
 alias sicp='cd /home/tejomay/workspace/notes/swe/sicp'
 alias dot='cd /home/tejomay/workspace/git/dotfiles'
-alias cff='cd /home/tejomay/workspace/git/cff_webscraping'
 
 # bash auto-completion
 if [ -f /etc/bash_completion ]; then
