@@ -19,10 +19,19 @@ require('lazy').setup(
       'folke/tokyonight.nvim',
       lazy = false,
       priority = 1000,
-      config = function()
-        vim.cmd([[colorscheme tokyonight-night]])
+      opts = {
+        style = "night",
+        transparent = true,
+        styles = {
+          sidebars = "transparent",
+          floats = "transparent",
+        },
+      },
+      config = function(_, opts)
+        local tokyonight = require "tokyonight"
+        tokyonight.setup(opts)
+        tokyonight.load()
       end,
-      opts = {},
     },
     {
       'numToStr/Comment.nvim', opts = {}
@@ -216,3 +225,6 @@ cmp.setup({
 
 -- Auto update Lazy
 vim.api.nvim_create_autocmd("VimEnter", { callback = function() require "lazy".update({ show = false }) end })
+
+-- Highlight line numbers
+vim.api.nvim_set_hl(0, 'LineNr', { fg = "LightGrey"})
