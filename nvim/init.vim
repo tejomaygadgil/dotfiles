@@ -1,5 +1,10 @@
 lua require("tej")
 
+" Set shell to bash to prevent vim-slime slowdown
+" https://github.com/jpalardy/vim-slime/issues/204
+set shell=/bin/sh " set default shell
+
+"
 " Jump to the last position when reopening a file
 " https://stackoverflow.com/a/774599
 if has("autocmd")
