@@ -18,9 +18,6 @@ nmap oo o<Esc>
 nmap OO O<Esc>
 set timeoutlen=300
 
-" Disable swap files
-set noswapfile
-
 " Ctrl-s to save, and saving exits insert mode
 :nmap <c-s> :w<CR>
 :imap <c-s> <Esc>:w<CR>
