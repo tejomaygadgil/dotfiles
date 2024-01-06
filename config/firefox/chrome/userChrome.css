@@ -89,6 +89,9 @@ by Miguel Avila
 
 /* Tabs elements  */
 
+#TabsToolbar {visibility: collapse;}
+#nav-bar {visibility: collapse;}
+
 #nav-bar:not([tabs-hidden='true']) {
   box-shadow: none;
 }
