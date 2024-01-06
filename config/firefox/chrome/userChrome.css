@@ -89,10 +89,6 @@ by Miguel Avila
 
 /* Tabs elements  */
 
-.tabbrowser-tab:not([pinned]) .tab-icon-image {
-  display: none !important;
-}
-
 #nav-bar:not([tabs-hidden='true']) {
   box-shadow: none;
 }

@@ -5,3 +5,4 @@ ln -rsf ./config/.gitconfig ~/
 ln -rsf ./config/.ignore ~/workspace/
 ln -rsf ./config/alacritty.yml ~/.config/alacritty/
 ln -rsf ./config/foot.ini ~/.config/foot/
+ln -rsf ./config/firefox/chrome/ ~/.mozilla/firefox/e4xc206r.default-release/
