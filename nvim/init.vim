@@ -1,5 +1,16 @@
 lua require("tej")
 
+" Multiple vim sessions on the same file
+let g:instant_username ="tej"
+function! StartInstant()
+    execute 'InstantStartServer 127.0.0.1 8080'
+    execute 'InstantStartSession 127.0.0.1 8080'
+endfunction
+function! JoinInstant()
+    execute 'InstantJoinSession 127.0.0.1 8080'
+    execute 'InstantFollow tej'
+endfunction
+
 " Set shell to bash to prevent vim-slime slowdown
 " https://github.com/jpalardy/vim-slime/issues/204
 set shell=/bin/sh " set default shell

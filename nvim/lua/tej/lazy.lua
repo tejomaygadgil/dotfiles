@@ -34,6 +34,9 @@ require('lazy').setup(
       end,
     },
     {
+      'jbyuki/instant.nvim'
+    },
+    {
       'numToStr/Comment.nvim', opts = {}
     },
     {
@@ -227,4 +230,4 @@ cmp.setup({
 vim.api.nvim_create_autocmd("VimEnter", { callback = function() require "lazy".update({ show = false }) end })
 
 -- Highlight line numbers
-vim.api.nvim_set_hl(0, 'LineNr', { fg = "LightGrey"})
+vim.api.nvim_set_hl(0, 'LineNr', { fg = "LightGrey" })
