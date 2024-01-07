@@ -1,6 +1,9 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
+    # Broken pipe fix as per https://github.com/jorgebucaran/hydro/issues/6
+    eval /home/tejomay/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+
     # Clear startup message
     set -g fish_greeting
     
