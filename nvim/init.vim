@@ -29,10 +29,6 @@ nmap oo o<Esc>
 nmap OO O<Esc>
 set timeoutlen=300
 
-" Ctrl-s to save, and saving exits insert mode
-:nmap <c-s> :w<CR>
-:imap <c-s> <Esc>:w<CR>
-
 " Spelling
 setlocal spell spelllang=en_us
 
@@ -62,7 +58,7 @@ set expandtab
 set autoindent
 
 " Toggle search highlighting
-noremap <F4> :set hlsearch! hlsearch?<CR>*#
+noremap <F4> :set hlsearch! hlsearch?<CR>
 
 " Ignore case
 set ignorecase
