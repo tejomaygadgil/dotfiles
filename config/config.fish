@@ -20,7 +20,7 @@ if status is-interactive
     alias gg='lazygit'
 
     # Configs
-    alias fs='nvim /home/tejomay/config.fish'
+    alias fs='nvim ~/workspace/git/dotfiles/config/config.fish'
 
     # Directories
     alias no='cd /home/tejomay/workspace/notes'
