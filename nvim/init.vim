@@ -23,6 +23,9 @@ if has("autocmd")
     \| exe "normal! g`\"" | endif
 endif
 
+" Map ctrl-s to copy to the system clipboard
+vnoremap <C-s> "+y
+
 " Add new line above and below without entering insert mode
 " https://stackoverflow.com/a/16136133
 nmap oo o<Esc>
