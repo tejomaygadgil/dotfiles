@@ -61,8 +61,8 @@ set shiftwidth=2
 set expandtab
 set autoindent
 
-" Remove search highlighting
-set nohlsearch
+" Toggle search highlighting
+noremap <F4> :set hlsearch! hlsearch?<CR>*#
 
 " Ignore case
 set ignorecase
