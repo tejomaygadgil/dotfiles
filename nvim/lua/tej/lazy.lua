@@ -37,6 +37,12 @@ require('lazy').setup(
       'jbyuki/instant.nvim'
     },
     {
+      "robitx/gp.nvim",
+      config = {
+        openai_api_key = { "cat", "/home/tejomay/.config/shell_gpt/.gprc" }
+      },
+    },
+    {
       'numToStr/Comment.nvim', opts = {}
     },
     {

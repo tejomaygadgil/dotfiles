@@ -13,6 +13,13 @@ vim.keymap.set('n', '<leader>s', ts.live_grep)
 vim.keymap.set('n', '<leader>b', ts.buffers)
 vim.keymap.set('n', '<leader>tt', ':Telescope<CR>')
 
+-- GPT
+vim.keymap.set("n", "<leader>cn", ":GpChatNew<cr>")
+vim.keymap.set("n", "<leader>ce", ":GpChatToggle<cr>")
+vim.keymap.set("n", "<leader>cc", ":GpChatFinder<cr>")
+vim.keymap.set("n", "<leader>cp", "V:<C-u>'<,'>GpChatPaste<cr>")
+vim.keymap.set("v", "<leader>cp", ":<C-u>'<,'>GpChatPaste<cr>")
+
 -- Easy picker
 vim.keymap.set('n', '<leader>ge', ':Easypick unstaged_changes<CR>')
 
