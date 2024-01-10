@@ -121,6 +121,7 @@ require('lazy').setup(
             'python',
             'csv',
             'css',
+            'javascript',
             'json',
             'latex',
             'markdown',
