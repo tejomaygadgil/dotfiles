@@ -48,6 +48,9 @@ function! ToggleTwoColumns()
 endfunction
 nnoremap <F3> :call ToggleTwoColumns()<CR>
 
+" Toggle search highlighting
+noremap <F4> :set hlsearch! hlsearch?<CR>
+
 " Add new line above and below without entering insert mode
 " https://stackoverflow.com/a/16136133
 nmap o o<Esc>
@@ -80,9 +83,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set autoindent
-
-" Toggle search highlighting
-noremap <F4> :set hlsearch! hlsearch?<CR>
 
 " Ignore case
 set ignorecase
