@@ -1,9 +1,5 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-
-    # Broken pipe fix as per https://github.com/jorgebucaran/hydro/issues/6
-    eval /home/tejomay/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-
     # Clear startup message
     set -g fish_greeting
     
@@ -32,7 +28,8 @@ end
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if test -f /home/tejomay/anaconda3/bin/conda
-    eval /home/tejomay/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+    # Broken pipe fix as per https://github.com/IlanCosman/tide/issues/143
+    status is-interactive && eval /home/tejomay/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 else
     if test -f "/home/tejomay/anaconda3/etc/fish/conf.d/conda.fish"
         . "/home/tejomay/anaconda3/etc/fish/conf.d/conda.fish"
