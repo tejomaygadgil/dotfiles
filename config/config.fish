@@ -1,5 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+
     # Clear startup message
     set -g fish_greeting
     
@@ -9,6 +10,8 @@ if status is-interactive
 
     # Apps
     alias tm='tmux attach'
+    alias tma='tmux attach'
+    alias tmn='tmux'
     alias td='termdown --no-figlet'
     alias mr='~/workspace/git/micro-rest/micro-rest.sh'
     alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
@@ -17,6 +20,7 @@ if status is-interactive
 
     # Configs
     alias fs='nvim ~/workspace/git/dotfiles/config/config.fish'
+    alias sf='source ~/workspace/git/dotfiles/config/config.fish'
 
     # Directories
     alias no='cd /home/tejomay/workspace/notes'
