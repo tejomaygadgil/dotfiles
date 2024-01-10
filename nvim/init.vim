@@ -26,6 +26,28 @@ endif
 " Map ctrl-s to copy to the system clipboard
 vnoremap <C-s> "+y
 
+" Two column scrolling
+" https://vi.stackexchange.com/a/26876
+let g:TwoColumnsActive = 0
+function! ToggleTwoColumns()
+  if g:TwoColumnsActive == 0
+    execute "normal zR"
+    set noscrollbind
+    vsplit
+    execute "normal \<c-f>"
+    set scrollbind
+    wincmd h
+    set scrollbind
+    let g:TwoColumnsActive = 1
+  else
+    wincmd l
+    q
+    set noscrollbind
+    let g:TwoColumnsActive = 0
+  endif
+endfunction
+nnoremap <F3> :call ToggleTwoColumns()<CR>
+
 " Add new line above and below without entering insert mode
 " https://stackoverflow.com/a/16136133
 nmap o o<Esc>
