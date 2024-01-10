@@ -28,9 +28,8 @@ vnoremap <C-s> "+y
 
 " Add new line above and below without entering insert mode
 " https://stackoverflow.com/a/16136133
-nmap oo o<Esc>
-nmap OO O<Esc>
-set timeoutlen=300
+nmap o o<Esc>
+nmap O O<Esc>
 
 " Spelling
 setlocal spell spelllang=en_us
