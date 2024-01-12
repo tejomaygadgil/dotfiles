@@ -1,6 +1,14 @@
 lua require("tej")
 
 " SICP testing
+" Abbrevations
+func Eatchar(pat)
+  let c = nr2char(getchar(0))
+  return (c =~ a:pat) ? '' : c
+endfunc
+iab sd (define () 0)<esc>T(i<C-R>=Eatchar('\s')<CR>
+iab sb ```{{scheme}}<CR><CR><CR><CR>```<Esc>kki<C-R>=Eatchar('\s')<CR>
+iab sc ; #################### ####################<Esc>bhi
 " Slime
 nnoremap st 't<Plug>SlimeParagraphSend
 nnoremap sg 'g<Plug>SlimeParagraphSend
