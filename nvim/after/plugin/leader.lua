@@ -1,11 +1,6 @@
 -- Set up leader key
 vim.g.mapleader = ' '
 
--- SICP testing
-vim.keymap.set('n', 'st', "'t<Plug>SlimeParagraphSend")
-vim.keymap.set('n', 'sg', "'g<Plug>SlimeParagraphSend")
-vim.keymap.set('n', 'ss', "'s<Plug>SlimeParagraphSend")
-
 -- File explorer
 vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 
