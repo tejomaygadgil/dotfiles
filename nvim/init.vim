@@ -35,6 +35,7 @@ function! ToggleTwoColumns()
     set noscrollbind
     vsplit
     execute "normal \<c-f>"
+    execute "normal jjj"
     set scrollbind
     wincmd h
     set scrollbind
