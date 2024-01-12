@@ -9,9 +9,8 @@ if status is-interactive
     dd
 
     # Apps
+    alias tn='tmux'
     alias tm='tmux attach'
-    alias tma='tmux attach'
-    alias tmm='tmux'
     alias td='termdown --no-figlet'
     alias mr='~/workspace/git/micro-rest/micro-rest.sh'
     alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
