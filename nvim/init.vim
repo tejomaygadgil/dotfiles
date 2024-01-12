@@ -12,7 +12,10 @@ iab sc ; #################### ####################<Esc>bhi
 " Slime
 nnoremap st 't<Plug>SlimeParagraphSend
 nnoremap sg 'g<Plug>SlimeParagraphSend
-nnoremap ss 's<Plug>SlimeParagraphSend
+
+" vim-slime
+xmap ss <Plug>SlimeRegionSend
+nmap ss <Plug>SlimeParagraphSend
 
 " Multiple vim sessions on the same file
 let g:instant_username ="tej"
