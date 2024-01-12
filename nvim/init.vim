@@ -6,7 +6,8 @@ func Eatchar(pat)
   let c = nr2char(getchar(0))
   return (c =~ a:pat) ? '' : c
 endfunc
-iab sd (define () 0)<esc>T(i<C-R>=Eatchar('\s')<CR>
+iab sd (define () )<esc>T(i<C-R>=Eatchar('\s')<CR>
+iab sv (define )<esc>ha<C-R>=Eatchar('\s')<CR>
 iab sb ```{{scheme}}<CR><CR><CR><CR>```<Esc>kki<C-R>=Eatchar('\s')<CR>
 iab sc ; #################### ####################<Esc>bhi
 " Slime
