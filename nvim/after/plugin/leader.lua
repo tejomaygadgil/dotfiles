@@ -8,9 +8,9 @@ vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 local ts = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', function() ts.find_files({ hidden = true, }) end)
 vim.keymap.set('n', '<leader>fe', ts.oldfiles)
+vim.keymap.set('n', '<leader>fs', ts.live_grep)
+vim.keymap.set('n', '<leader>fb', ts.buffers)
 vim.keymap.set('n', '<leader>h', ts.help_tags, { desc = "help" })
-vim.keymap.set('n', '<leader>s', ts.live_grep)
-vim.keymap.set('n', '<leader>b', ts.buffers)
 vim.keymap.set('n', '<leader>tt', ':Telescope<CR>')
 
 -- GPT
