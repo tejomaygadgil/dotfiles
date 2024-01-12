@@ -198,6 +198,8 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'pyright',
     'ruff_lsp',
+    'html',
+    'cssls',
   },
   handlers = {
     lsp_zero.default_setup,
