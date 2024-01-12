@@ -26,17 +26,11 @@ vim.keymap.set('n', '<leader>ge', ':Easypick unstaged_changes<CR>')
 -- Lazygit
 vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
 
--- Git signs
-local gs = require('gitsigns')
+-- Gitsigns / Fugitive
 vim.keymap.set({ 'n', 'v' }, '<leader>gs', ':Gitsigns stage_hunk<CR>')
-vim.keymap.set({ 'n', 'v' }, '<leader>gr', ':Gitsigns reset_hunk<CR>')
-vim.keymap.set('n', '<leader>gu', gs.undo_stage_hunk)
-vim.keymap.set('n', '<leader>gS', gs.stage_buffer)
-vim.keymap.set('n', '<leader>gR', gs.reset_buffer)
-vim.keymap.set('n', '<leader>gp', gs.preview_hunk)
-vim.keymap.set('n', '<leader>gb', function() gs.blame_line({ full = true, }) end)
-vim.keymap.set('n', '<leader>gd', gs.diffthis)
-vim.keymap.set('n', '<leader>gD', function() gs.diffthis('~') end)
+vim.keymap.set('n', '<leader>gc', ':Git commit<CR>')
+vim.keymap.set('n', '<leader>gr', ':Git reset --soft')
+vim.keymap.set('n', '<leader>gR', ':Git reset --hard')
 
 -- InspectTree
 -- vim.keymap.set('n', '<leader>t', vim.cmd.InspectTree)

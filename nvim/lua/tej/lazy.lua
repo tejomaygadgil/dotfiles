@@ -46,6 +46,9 @@ require('lazy').setup(
       'numToStr/Comment.nvim', opts = {}
     },
     {
+      'tpope/vim-fugitive',
+    },
+    {
       'lewis6991/gitsigns.nvim',
       opts = {
         signs = {
