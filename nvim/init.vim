@@ -56,6 +56,10 @@ noremap <F4> :set hlsearch! hlsearch?<CR>
 nmap o o<Esc>
 nmap O O<Esc>
 
+" Fix line wrapping
+noremap j gj
+noremap k gk
+
 " Spelling
 setlocal spell spelllang=en_us
 
