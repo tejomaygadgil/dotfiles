@@ -46,10 +46,10 @@ function! ToggleTwoColumns()
     let g:TwoColumnsActive = 0
   endif
 endfunction
-nnoremap <F3> :call ToggleTwoColumns()<CR>
+nnoremap <F2> :call ToggleTwoColumns()<CR>
 
 " Toggle search highlighting
-noremap <F4> :set hlsearch! hlsearch?<CR>
+noremap <F5> :set hlsearch! hlsearch?<CR>
 
 " Add new line above and below without entering insert mode
 " https://stackoverflow.com/a/16136133
