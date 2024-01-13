@@ -5,6 +5,12 @@
     st = status -s
     cm = commit -m
 
+[mergetool]
+    keepBackup = false
+
+[merge]
+    tool = nvimdiff
+
 [user]
     email = tejomaygadgil@gmail.com
     name = Tejomay Gadgil
