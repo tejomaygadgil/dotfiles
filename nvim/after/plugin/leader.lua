@@ -23,10 +23,9 @@ vim.keymap.set("v", "<leader>cp", ":<C-u>'<,'>GpChatPaste<cr>")
 -- Easy picker
 vim.keymap.set('n', '<leader>ge', ':Easypick unstaged_changes<CR>')
 
--- Lazygit
+-- Lazygit / Gitsigns / Fugitive 
 vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
-
--- Gitsigns / Fugitive
+vim.keymap.set('n', '<leader>gf', ':Git<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>gs', ':Gitsigns stage_hunk<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>gd', ':Gitsigns reset_hunk<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>gb', ':Git blame<CR>')
