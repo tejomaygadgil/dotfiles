@@ -29,7 +29,7 @@ vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
 -- Gitsigns / Fugitive
 vim.keymap.set({ 'n', 'v' }, '<leader>gs', ':Gitsigns stage_hunk<CR>')
 vim.keymap.set('n', '<leader>gc', ':Git commit<CR>')
-vim.keymap.set('n', '<leader>gr', ':Git reset --soft<CR>')
+vim.keymap.set('n', '<leader>gr', ':Git reset<CR>')
 vim.keymap.set('n', '<leader>gR', ':Git reset --hard<CR>')
 vim.keymap.set('n', '<leader>gp', ':Git pull<CR>')
 vim.keymap.set('n', '<leader>gP', ':Git push<CR>')
