@@ -10,9 +10,6 @@ iab sd (define () )<esc>T(i<C-R>=Eatchar('\s')<CR>
 iab sv (define )<esc>ha<C-R>=Eatchar('\s')<CR>
 iab sb ```{{scheme}}<CR><CR><CR><CR>```<Esc>kki<C-R>=Eatchar('\s')<CR>
 iab sc ; #################### ####################<Esc>bhi
-" Slime
-nnoremap st 't<Plug>SlimeParagraphSend2<C-o>zz
-nnoremap sg 'g<Plug>SlimeParagraphSend2<C-o>zz
 
 " vim-slime
 xmap ss <Plug>SlimeRegionSend
