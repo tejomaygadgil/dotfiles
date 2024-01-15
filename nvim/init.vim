@@ -65,6 +65,7 @@ endfunction
 nnoremap <F2> :call ToggleTwoColumns()<CR>
 
 " Toggle search highlighting
+set nohlsearch
 noremap <F5> :set hlsearch! hlsearch?<CR>
 
 " Add new line above and below without entering insert mode
