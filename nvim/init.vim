@@ -64,6 +64,10 @@ function! ToggleTwoColumns()
 endfunction
 nnoremap <F2> :call ToggleTwoColumns()<CR>
 
+" Highlight cursorline for better readability
+" https://stackoverflow.com/a/58372745
+set cursorline
+
 " Toggle search highlighting
 set nohlsearch
 noremap <F5> :set hlsearch! hlsearch?<CR>
