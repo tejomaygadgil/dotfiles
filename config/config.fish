@@ -1,9 +1,13 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
+    # Timer commands
+    alias tt='~/workspace/git/dotfiles/scripts/timer.sh'
+    alias tk='kill "$(pgrep timer)"'
+
     # Clear startup message
     set -g fish_greeting
-    
+
     # Change default directory
     alias dd='cd /home/tejomay/workspace'
     dd
