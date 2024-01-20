@@ -51,13 +51,18 @@ require('lazy').setup(
     {
       'lewis6991/gitsigns.nvim',
       opts = {
+        numhl = true,
+        linehl = true,
+        word_diff = true,
+        -- show_deleted = true,
+        current_line_blame = true,
         signs = {
-          add = { text = '▎' },
-          change = { text = '▎' },
-          delete = { text = '' },
+          add = { text = 'A' },
+          change = { text = 'C' },
+          delete = { text = 'D' },
           topdelete = { text = '' },
           changedelete = { text = '▎' },
-          untracked = { text = '▎' },
+          untracked = { text = 'U' },
         },
         on_attach = function(buffer)
           local gs = package.loaded.gitsigns
@@ -66,8 +71,11 @@ require('lazy').setup(
             vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
           end
 
+          -- Navigate hunks
           map('n', ']h', gs.next_hunk, 'Next Hunk')
           map('n', '[h', gs.prev_hunk, 'Prev Hunk')
+
+          -- Text object
           map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', 'GitSigns Select Hunk')
         end,
       },
