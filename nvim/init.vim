@@ -72,6 +72,10 @@ set cursorline
 set nohlsearch
 noremap <F5> :set hlsearch! hlsearch?<CR>
 
+" Strip trailing white space
+" https://vi.stackexchange.com/a/2285
+nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
 " Add new line above and below without entering insert mode
 " https://stackoverflow.com/a/16136133
 nmap o o<Esc>
