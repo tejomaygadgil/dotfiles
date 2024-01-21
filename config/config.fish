@@ -13,6 +13,7 @@ if status is-interactive
     dd
 
     # Apps
+    alias nv='nvim'
     alias tn='tmux'
     alias tm='tmux attach'
     alias td='termdown --no-figlet'
