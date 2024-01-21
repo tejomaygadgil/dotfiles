@@ -53,7 +53,7 @@ require('lazy').setup(
       opts = {
         numhl = true,
         linehl = true,
-        word_diff = true,
+        -- word_diff = true,
         -- show_deleted = true,
         current_line_blame = true,
         signs = {

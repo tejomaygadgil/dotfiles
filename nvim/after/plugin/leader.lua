@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader>cp", "V:<C-u>'<,'>GpChatPaste<cr>")
 vim.keymap.set("v", "<leader>cp", ":<C-u>'<,'>GpChatPaste<cr>")
 
 -- Easy picker
-vim.keymap.set('n', '<leader>ge', ':Easypick unstaged_changes<CR>')
+vim.keymap.set('n', '<leader>fg', ':Easypick unstaged_changes<CR>')
 
 -- Lazygit / Gitsigns / Fugitive 
 vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
@@ -38,6 +38,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>hS', ':Gitsigns stage_buffer<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>hR', ':Gitsigns reset_buffer<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>hp', ':Gitsigns preview_hunk<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>hd', ':Gitsigns toggle_deleted<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>hw', ':Gitsigns toggle_word_diff<CR>')
 
 -- InspectTree
 -- vim.keymap.set('n', '<leader>t', vim.cmd.InspectTree)
