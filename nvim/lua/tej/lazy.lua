@@ -60,8 +60,8 @@ require('lazy').setup(
           add = { text = 'A' },
           change = { text = 'C' },
           delete = { text = 'D' },
-          topdelete = { text = '' },
-          changedelete = { text = '▎' },
+          topdelete = { text = 'T' },
+          changedelete = { text = 'C' },
           untracked = { text = 'U' },
         },
         on_attach = function(buffer)
@@ -249,5 +249,3 @@ cmp.setup({
 -- Auto update Lazy
 vim.api.nvim_create_autocmd("VimEnter", { callback = function() require "lazy".update({ show = false }) end })
 
--- Highlight line numbers
-vim.api.nvim_set_hl(0, 'LineNr', { fg = "LightGrey" })

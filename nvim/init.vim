@@ -22,7 +22,6 @@ endfunction
 " https://github.com/jpalardy/vim-slime/issues/204
 set shell=/bin/sh " set default shell
 
-"
 " Jump to the last position when reopening a file
 " https://stackoverflow.com/a/774599
 if has("autocmd")
@@ -60,6 +59,7 @@ nnoremap <F2> :call ToggleTwoColumns()<CR>
 " https://stackoverflow.com/a/58372745
 set cursorline
 set cursorcolumn
+highlight LineNr guifg=LightGrey
 highlight CursorLineNR gui=bold guifg=white
 " Change sign for Gitsigns
 highlight GitSignsChange guifg=gold
