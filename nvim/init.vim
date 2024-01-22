@@ -111,7 +111,7 @@ set splitright
 " Don't jump back when exiting search
 set cpoptions+=x
 
-" Set tabs 
+" Set tabs
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -119,7 +119,7 @@ set autoindent
 
 " Ignore case
 set ignorecase
-set smartcase 
+set smartcase
 
 " Improve scroll
 set scrolloff=8
