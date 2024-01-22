@@ -3,10 +3,6 @@ lua require("tej")
 " Abbrevations
 iab sc ; #################### ####################<Esc>bhi
 
-" vim-slime
-xmap ss <Plug>SlimeRegionSend
-nmap ss <Plug>SlimeParagraphSend
-
 " Multiple vim sessions on the same file
 let g:instant_username ="tej"
 function! StartInstant()

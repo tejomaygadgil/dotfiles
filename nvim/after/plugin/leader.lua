@@ -43,6 +43,10 @@ vim.keymap.set({ 'n', 'v' }, '<leader>hw', ':Gitsigns toggle_word_diff<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>hl', ':Gitsigns toggle_linehl<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>hn', ':Gitsigns toggle_numhl<CR>')
 
+-- Slime
+vim.keymap.set('x', 'ss', '<Plug>SlimeRegionSend')
+vim.keymap.set('n', 'ss', '<Plug>SlimeParagraphSend')
+
 -- InspectTree
 -- vim.keymap.set('n', '<leader>t', vim.cmd.InspectTree)
 
