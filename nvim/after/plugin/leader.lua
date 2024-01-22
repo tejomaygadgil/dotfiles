@@ -40,6 +40,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>hu', ':Gitsigns undo_stage_hunk<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>hp', ':Gitsigns preview_hunk<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>hd', ':Gitsigns toggle_deleted<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>hw', ':Gitsigns toggle_word_diff<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>hl', ':Gitsigns toggle_linehl<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>hn', ':Gitsigns toggle_numhl<CR>')
 
 -- InspectTree
 -- vim.keymap.set('n', '<leader>t', vim.cmd.InspectTree)

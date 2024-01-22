@@ -67,6 +67,10 @@ nnoremap <F2> :call ToggleTwoColumns()<CR>
 " Highlight cursorline for better readability
 " https://stackoverflow.com/a/58372745
 set cursorline
+set cursorcolumn
+highlight CursorLineNR gui=bold guifg=white
+" Change sign for Gitsigns
+highlight GitSignsChange guifg=gold
 
 " Toggle search highlighting
 set nohlsearch

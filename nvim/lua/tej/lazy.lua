@@ -51,8 +51,8 @@ require('lazy').setup(
     {
       'lewis6991/gitsigns.nvim',
       opts = {
-        numhl = true,
-        linehl = true,
+        -- numhl = true,
+        -- linehl = true,
         -- word_diff = true,
         -- show_deleted = true,
         current_line_blame = true,
