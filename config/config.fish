@@ -26,11 +26,6 @@ if status is-interactive
     alias fs='nvim ~/workspace/git/dotfiles/config/config.fish'
     alias sf='source ~/workspace/git/dotfiles/config/config.fish'
 
-    # Directories
-    alias no='cd /home/tejomay/workspace/notes'
-    alias sicp='cd /home/tejomay/workspace/notes/swe/sicp'
-    alias dot='cd /home/tejomay/workspace/git/dotfiles'
-
 end
 
 # >>> conda initialize >>>
