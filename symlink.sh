@@ -7,3 +7,4 @@ ln -rsf ./config/alacritty.yml ~/.config/alacritty/
 ln -rsf ./config/foot.ini ~/.config/foot/
 ln -rsf ./config/firefox/chrome/ ~/.mozilla/firefox/e4xc206r.default-release/
 ln -rsf ./config/config.fish ~/.config/fish/
+ln -rsf ./config/sway/config ~/.config/sway/
