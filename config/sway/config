@@ -64,6 +64,10 @@ output * bg /home/tejomay/Dropbox/pictures/color1.png fill
 #
 # Basics:
 #
+    # Swap escape with capslock
+    input "type:keyboard" xkb_options caps:swapescape
+
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
