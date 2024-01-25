@@ -16,10 +16,9 @@ if status is-interactive
     alias nv='nvim'
     alias tn='tmux'
     alias tm='tmux attach'
-    alias td='termdown --no-figlet'
     alias mr='~/workspace/git/micro-rest/micro-rest.sh'
     alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
-    alias rb='~/workspace/git/dotfiles/reset_audio.sh'
+    alias rb='~/workspace/git/dotfiles/scripts/reset_audio.sh'
     alias gg='lazygit'
 
     # Configs
