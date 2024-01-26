@@ -119,6 +119,10 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec sway exit
+
+    # Toggle sway bar 
+    bindsym $mod+o exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "dock" ] && swaymsg bar mode invisible || swaymsg bar mode dock'
+
 #
 # Moving around:
 #
