@@ -86,6 +86,9 @@ output * bg /home/tejomay/Dropbox/pictures/color1.png fill
     # Start a terminal
     bindsym $mod+f exec $term
 
+    # Start browser
+    bindsym $mod+b exec firefox
+
     # Kill focused window
     bindsym $mod+Shift+q kill
 
@@ -161,8 +164,7 @@ output * bg /home/tejomay/Dropbox/pictures/color1.png fill
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+v layout toggle splith splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
