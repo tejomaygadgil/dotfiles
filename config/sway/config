@@ -126,6 +126,12 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 #
 # Moving around:
 #
+    # Emacs style navigation
+    bindsym $mod+p workspace next
+    bindsym $mod+n workspace prev
+    bindsym $mod+Shift+p focus next
+    bindsym $mod+Shift+n focus prev
+
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
