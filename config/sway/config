@@ -66,7 +66,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Resolution
     output eDP-1 mode --custom 1920x1080@59.982Hz scale 1
     output DP-1 resolution 2560x1440@59.951Hz
-    
+
     # Clamshell
     # https://github.com/swaywm/sway/wiki#clamshell-mode
     set $laptop eDP-1
@@ -120,7 +120,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec sway exit
 
-    # Toggle sway bar 
+    # Toggle sway bar
     bindsym $mod+o exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "dock" ] && swaymsg bar mode invisible || swaymsg bar mode dock'
 
 #
@@ -215,7 +215,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     smart_borders on
     default_border none
     default_border pixel 1
-    client.focused #f0f0f0 #f0f0f0 #000000 #2e9ef4     
+    client.focused #f0f0f0 #f0f0f0 #000000 #2e9ef4
 
 #
 # Scratchpad:
