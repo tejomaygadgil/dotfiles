@@ -66,6 +66,14 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Resolution
     output eDP-1 mode --custom 1920x1080@59.982Hz scale 1
     output DP-1 resolution 2560x1440@59.951Hz
+    
+    # Clamshell
+    # https://github.com/swaywm/sway/wiki#clamshell-mode
+    set $laptop eDP-1
+    bindswitch --reload --locked lid:on output $laptop disable
+    bindswitch --reload --locked lid:off output $laptop enable
+
+    exec_always ~/.config/sway/clamshell.sh
 
 ### Key bindings
 #
