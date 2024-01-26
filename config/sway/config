@@ -63,7 +63,11 @@ output * bg /home/tejomay/Dropbox/pictures/color1.png fill
 ### Key bindings
 #
 # Basics:
-#
+
+     # Resolution
+     output eDP-1 mode --custom 1920x1080@59.982Hz scale 1
+     output DP-1 resolution 2560x1440@59.951Hz
+
     # Swap escape with capslock
     input "type:keyboard" xkb_options caps:swapescape
 
