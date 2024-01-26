@@ -25,7 +25,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/tejomay/Dropbox/pictures/color1.png fill
+output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 #
 # Example configuration:
 #
@@ -63,6 +63,7 @@ output * bg /home/tejomay/Dropbox/pictures/color1.png fill
 ### Key bindings
 #
 # Basics:
+#
 
      # Resolution
      output eDP-1 mode --custom 1920x1080@59.982Hz scale 1
@@ -183,6 +184,14 @@ output * bg /home/tejomay/Dropbox/pictures/color1.png fill
     # Move focus to the parent container
     bindsym $mod+a focus parent
     bindsym $mod+Shift+a focus child
+
+#
+# Aesthetics
+#
+    # Set gaps
+    gaps inner 5
+    smart_gaps on
+
 #
 # Scratchpad:
 #
