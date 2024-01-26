@@ -192,8 +192,12 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 # Aesthetics
 #
     # Set gaps
-    gaps inner 5
+    gaps inner 4
     smart_gaps on
+    smart_borders on
+    default_border none
+    default_border pixel 1
+    client.focused #f0f0f0 #f0f0f0 #000000 #2e9ef4     
 
 #
 # Scratchpad:
@@ -246,8 +250,8 @@ bar {
     colors {
         statusline #000000
         background #f0f0f0
-        focused_workspace #f0f0f0ff #f0f0f0ff #000000
-        inactive_workspace #f0f0f000 #f0f0f000 #ffffff
+        inactive_workspace #f0f0f0ff #f0f0f0ff #000000
+        focused_workspace #f0f0f000 #f0f0f000 #ffffff
     }
 }
 
