@@ -182,6 +182,7 @@ output * bg /home/tejomay/Dropbox/pictures/color1.png fill
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+    bindsym $mod+Shift+a focus child
 #
 # Scratchpad:
 #
