@@ -186,7 +186,8 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+v split toggle
+    bindsym $mod+s split toggle
+    bindsym $mod+v split none
 
     # Switch the current container between different layout styles
     bindsym $mod+w layout toggle all
