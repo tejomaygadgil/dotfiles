@@ -73,6 +73,12 @@ output * bg /home/tejomay/Dropbox/pictures/color1.png fill
     bindsym XF86AudioLowerVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-
     bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
+    # Media control
+    # https://github.com/swaywm/sway/issues/4783#issuecomment-1038571359
+    bindcode 172 exec playerctl play-pause
+    bindsym XF86AudioPrev exec playerctl previous
+    bindsym XF86AudioNext exec playerctl next
+
     # Start a terminal
     bindsym $mod+Return exec $term
 
