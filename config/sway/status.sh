@@ -4,7 +4,7 @@ sep=' / '
 
 # Datetime
 time=$(date '+%H:%M:%S')
-date=$(date '+%a %m-%d-%Y')
+date=$(date '+%a %V %m-%d-%Y')
 datetime="$time $sep $date"
 
 # Battery level and time left
