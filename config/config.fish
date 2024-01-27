@@ -10,7 +10,7 @@ if status is-interactive
 
     # Change default directory
     alias dd='cd /home/tejomay/workspace'
-    dd
+    # dd
 
     # Apps
     alias nv='nvim'
