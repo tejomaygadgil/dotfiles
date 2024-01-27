@@ -13,4 +13,7 @@ level="$(upower --show-info $battery_dev | rg "percentage" | awk '{print $2}')"
 time_left="$(upower --show-info $battery_dev | rg time | awk '{print $4 " " $5}')"
 battery="$time_left"
 
-echo $datetime $sep $battery
+# Volume
+volume="$(amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]%' | awk 'NR==1{print $1}')"
+
+echo $datetime $sep $battery $sep $volume
