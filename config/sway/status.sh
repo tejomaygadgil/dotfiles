@@ -4,8 +4,9 @@ sep=' / '
 
 # Datetime
 time=$(date '+%H:%M:%S')
-date=$(date '+%a %V %m-%d-%Y')
-datetime="$time $sep $date"
+week=$(date '+%a %V')
+date=$(date '+%m-%d-%Y')
+datetime="$time $sep $date $sep $week"
 
 # Battery level and time left
 battery_dev=$(upower --enumerate | rg BAT)
