@@ -49,7 +49,7 @@ function! ToggleTwoColumns()
     let g:TwoColumnsActive = 0
   endif
 endfunction
-nnoremap <F2> :call ToggleTwoColumns()<CR>
+nnoremap <F7> :call ToggleTwoColumns()<CR>
 
 " Highlight cursorline for better readability
 " https://stackoverflow.com/a/58372745
