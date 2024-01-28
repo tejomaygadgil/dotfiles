@@ -103,6 +103,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 
     # Shortcuts
     bindsym $mod+q+w exec foot nvim ~/workspace/notes/scratch.md
+    bindsym $mod+q+n exec foot nvim ~/workspace/git/dotfiles/nvim/init.vim
     bindsym $mod+c exec foot nvim ~/workspace/git/dotfiles/config/sway/config
 
     # Kill focused window
