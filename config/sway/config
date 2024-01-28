@@ -101,7 +101,9 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Start browser
     bindsym $mod+b exec firefox
 
-    bindsym $mod+q exec foot nvim ~/workspace/notes/scratch.txt
+    # Shortcuts
+    bindsym $mod+q+w exec foot nvim ~/workspace/notes/scratch.md
+    bindsym $mod+c exec foot nvim ~/workspace/git/dotfiles/config/sway/config
 
     # Kill focused window
     bindsym $mod+Shift+q kill
