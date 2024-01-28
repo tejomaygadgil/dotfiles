@@ -12,9 +12,9 @@ datetime="$time $sep $date $sep $week"
 battery_dev=$(upower --enumerate | rg BAT)
 level="$(upower --show-info $battery_dev | rg "percentage" | awk '{print $2}')"
 time_left="$(upower --show-info $battery_dev | rg time | awk '{print $4 " " $5}')"
-battery="$time_left"
+battery="$level, $time_left"
 
 # Volume
-volume="$(amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]%' | awk 'NR==1{print $1}')"
+volume="vol: $(amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]%' | awk 'NR==1{print $1}')"
 
-echo $datetime $sep $battery $sep $volume
+echo $datetime $sep $volume $sep $battery 
