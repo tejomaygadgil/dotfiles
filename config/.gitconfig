@@ -1,7 +1,13 @@
 # https://www.durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
 [alias]
-    ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    ll = log --pretty=format:"%C(yellow)%h%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lg = log --pretty=oneline --graph
+    lgv = log --pretty=format:"%C(yellow)%h%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --graph --decorate --numstat
+    als = log --all --pretty=format:"%C(yellow)%h\\ %ad%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    all = log --all --pretty=format:"%C(yellow)%h%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    alg = log --all --pretty=oneline --graph
+    algv = log --all --pretty=format:"%C(yellow)%h%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --graph --decorate --numstat
     st = status -s
     cm = commit -m
 
