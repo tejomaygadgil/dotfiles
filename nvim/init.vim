@@ -68,6 +68,9 @@ noremap <F5> :set hlsearch! hlsearch?<CR>
 " https://vi.stackexchange.com/a/2285
 nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
+" Conceal formatting characters for Markdown text
+set conceallevel=1
+
 " Add new line above and below without entering insert mode
 " https://stackoverflow.com/a/16136133
 nmap o o<Esc>
