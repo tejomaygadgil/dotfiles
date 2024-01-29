@@ -215,11 +215,11 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 # Aesthetics
 #
     # Set gaps
-    gaps inner 5
+    gaps inner 10
     smart_gaps on
     smart_borders on
     default_border none
-    default_border pixel 2
+    default_border pixel 3
     client.focused #f0f0f0 #f0f0f0 #000000 #2e9ef4
 
 #
