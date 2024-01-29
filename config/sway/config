@@ -101,10 +101,18 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Start browser
     bindsym $mod+b exec firefox
 
+    # Start file browser
+    bindsym $mod+Shift+n exec nautilus
+
+    # Start nvim
+    bindsym $mod+g exec $term nvim
+
+    # Start GPT interface
+    bindsym $mod+Shift+g exec $term nvim +GpChatNew
+
     # Shortcuts
-    bindsym $mod+q+w exec foot nvim ~/workspace/notes/scratch.md
-    bindsym $mod+q+n exec foot nvim ~/workspace/git/dotfiles/nvim/init.vim
-    bindsym $mod+c exec foot nvim ~/workspace/git/dotfiles/config/sway/config
+    bindsym $mod+q+w exec $term nvim ~/workspace/notes/scratch.md
+    bindsym $mod+c exec $term nvim ~/workspace/git/dotfiles/config/sway/config
 
     # Kill focused window
     bindsym $mod+Shift+q kill
