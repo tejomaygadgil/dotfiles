@@ -134,8 +134,8 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Emacs style navigation
     bindsym $mod+p workspace next
     bindsym $mod+n workspace prev
-    bindsym $mod+Shift+p focus next
-    bindsym $mod+Shift+n focus prev
+    # bindsym $mod+Shift+p focus next
+    # bindsym $mod+Shift+n focus prev
 
     # Move your focus around
     bindsym $mod+$left focus left
@@ -191,8 +191,8 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+s split toggle
-    bindsym $mod+v split none
+    bindsym $mod+v split toggle
+    bindsym $mod+s split none
 
     # Switch the current container between different layout styles
     bindsym $mod+w layout toggle all
