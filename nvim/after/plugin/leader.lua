@@ -15,6 +15,8 @@ vim.keymap.set('n', '<leader>tt', ':Telescope<CR>')
 
 -- GPT
 vim.keymap.set("n", "<leader>cn", ":GpChatNew<cr>")
+vim.keymap.set("n", "<leader>cg", ":GpChatRespond<cr>")
+vim.keymap.set("n", "<leader>cd", ":GpChatDelete<cr>")
 vim.keymap.set("n", "<leader>ce", ":GpChatToggle<cr>")
 vim.keymap.set("n", "<leader>cc", ":GpChatFinder<cr>")
 vim.keymap.set("n", "<leader>cp", "V:<C-u>'<,'>GpChatPaste<cr>")

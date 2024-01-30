@@ -39,8 +39,9 @@ require('lazy').setup(
     {
       "robitx/gp.nvim",
       config = {
-        openai_api_key = { "cat", "/home/tejomay/.config/shell_gpt/.gprc" }
-      },
+        openai_api_key = { "cat", "/home/tejomay/.config/shell_gpt/.gprc" },
+        chat_confirm_delete = false,
+      }
     },
     {
       'numToStr/Comment.nvim', opts = {}
