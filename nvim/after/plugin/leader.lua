@@ -26,6 +26,7 @@ vim.keymap.set('n', '<leader>fg', ':Easypick unstaged_changes<CR>')
 -- Lazygit / Gitsigns / Fugitive 
 vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
 vim.keymap.set('n', '<leader>gf', ':Git<CR>')
+vim.keymap.set('n', '<leader>gd', ':Git diff<CR>')
 vim.keymap.set('n', '<leader>gl', ':Git log<CR>')
 vim.keymap.set('n', '<leader>gc', ':Git commit<CR>')
 vim.keymap.set('n', '<leader>gC', ':Git commit --amend<CR>')
