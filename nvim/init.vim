@@ -18,6 +18,10 @@ endfunction
 " https://github.com/jpalardy/vim-slime/issues/204
 set shell=/bin/sh " set default shell
 
+" Autoset working directory to current file
+" https://vimways.org/2019/vim-and-the-working-directory/
+set autochdir
+
 " Jump to the last position when reopening a file
 " https://stackoverflow.com/a/774599
 if has("autocmd")
