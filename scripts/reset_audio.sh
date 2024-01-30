@@ -5,5 +5,5 @@ rm -r ~/.config/pulse
 # Airplay
 pactl load-module module-raop-discover
 
-# cf. https://askubuntu.com/a/1030961 for BT connection issues
+# cf. https://askubuntu.com/a/1030961
 
