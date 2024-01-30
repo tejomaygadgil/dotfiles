@@ -95,11 +95,15 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     bindsym XF86AudioPrev exec playerctl previous
     bindsym XF86AudioNext exec playerctl next
 
+    # Start Signal
+    bindsym $mod+q+s exec flatpak run org.signal.Signal
+
     # Start a terminal
     bindsym $mod+f exec $term
 
     # Start browser
     bindsym $mod+b exec firefox
+    bindsym $mod+Shift+b exec flatpak run com.google.Chrome
 
     # Start file browser
     bindsym $mod+Shift+n exec nautilus
@@ -112,7 +116,6 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 
     # Shortcuts
     bindsym $mod+q+w exec $term nvim ~/workspace/notes/scratch.md
-    bindsym $mod+c exec $term nvim ~/workspace/git/dotfiles/config/sway/config
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -128,6 +131,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     floating_modifier $mod normal
 
     # Reload the configuration file
+    bindsym $mod+c exec $term nvim ~/workspace/git/dotfiles/config/sway/config
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
