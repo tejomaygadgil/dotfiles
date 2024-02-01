@@ -2,7 +2,7 @@
 vim.g.mapleader = ' '
 
 -- File explorer
-vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>e', ':Neotree toggle source=last<CR>')
 
 -- Telescope
 local ts = require('telescope.builtin')

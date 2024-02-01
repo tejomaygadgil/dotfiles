@@ -37,6 +37,16 @@ require('lazy').setup(
       'jbyuki/instant.nvim'
     },
     {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      }
+    },
+    {
       "robitx/gp.nvim",
       config = {
         openai_api_key = { "cat", "/home/tejomay/.config/shell_gpt/.gprc" },
@@ -249,4 +259,3 @@ cmp.setup({
 
 -- Auto update Lazy
 vim.api.nvim_create_autocmd("VimEnter", { callback = function() require "lazy".update({ show = false }) end })
-
