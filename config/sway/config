@@ -79,7 +79,6 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 #
 # Basics:
 #
-
     # Swap escape with capslock
     input "type:keyboard" xkb_options caps:swapescape
 
@@ -95,8 +94,10 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     bindsym XF86AudioPrev exec playerctl previous
     bindsym XF86AudioNext exec playerctl next
 
-    # Start Signal
+    # Shortcuts
     bindsym $mod+q+s exec flatpak run org.signal.Signal
+    bindsym $mod+q+w exec $term nvim ~/workspace/notes/scratch.md
+    bindsym $mod+q+g exec zathura ~/workspace/notes/swe/progit.pdf
 
     # Start a terminal
     bindsym $mod+f exec $term
@@ -114,9 +115,6 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 
     # Start GPT interface
     bindsym $mod+Shift+g exec $term nvim +GpChatNew
-
-    # Shortcuts
-    bindsym $mod+q+w exec $term nvim ~/workspace/notes/scratch.md
 
     # Kill focused window
     bindsym $mod+Shift+q kill
