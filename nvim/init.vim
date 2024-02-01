@@ -3,17 +3,6 @@ lua require("tej")
 " Abbrevations
 iab sc ; #################### ####################<Esc>bhi
 
-" Multiple vim sessions on the same file
-let g:instant_username ="tej"
-function! StartInstant()
-    execute 'InstantStartServer 127.0.0.1 8080'
-    execute 'InstantStartSession 127.0.0.1 8080'
-endfunction
-function! JoinInstant()
-    execute 'InstantJoinSession 127.0.0.1 8080'
-    execute 'InstantFollow tej'
-endfunction
-
 " Set shell to bash to prevent vim-slime slowdown
 " https://github.com/jpalardy/vim-slime/issues/204
 set shell=/bin/sh " set default shell
@@ -123,11 +112,4 @@ set scrolloff=8
 set nu rnu
 autocmd InsertEnter * :set nornu
 autocmd InsertLeave * :set nu rnu
-
-" Disable arrow keys
-" for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-"   exec 'noremap' key '<Nop>'
-"   exec 'inoremap' key '<Nop>'
-"   exec 'cnoremap' key '<Nop>'
-" endfor
 

@@ -34,9 +34,6 @@ require('lazy').setup(
       end,
     },
     {
-      'jbyuki/instant.nvim'
-    },
-    {
       "nvim-neo-tree/neo-tree.nvim",
       branch = "v3.x",
       dependencies = {
@@ -109,23 +106,6 @@ require('lazy').setup(
           preview_cutoff = 0,
         },
       },
-    },
-    {
-      'axkirillov/easypick.nvim',
-      dependencies = { 'nvim-telescope/telescope.nvim' },
-      config = function()
-        local easypick = require('easypick')
-
-        easypick.setup({
-          pickers = {
-            {
-              name = "unstaged_changes",
-              command = "git diff --name-only",
-              previewer = easypick.previewers.branch_diff({ base_branch = "main" })
-            }
-          },
-        })
-      end,
     },
     {
       'nvim-treesitter/nvim-treesitter',
@@ -222,6 +202,7 @@ require('mason-lspconfig').setup({
     'ruff_lsp',
     'html',
     'cssls',
+    'marksman',
   },
   handlers = {
     lsp_zero.default_setup,
