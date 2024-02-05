@@ -62,7 +62,7 @@ noremap <F5> :set hlsearch! hlsearch?<CR>
 nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Conceal formatting characters for Markdown text
-set conceallevel=1
+set conceallevel=2
 
 " Add new line above and below without entering insert mode
 " https://stackoverflow.com/a/16136133
