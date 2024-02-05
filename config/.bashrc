@@ -41,6 +41,9 @@ alias tn='tmux'
 alias tm='tmux attach'
 alias gg='lazygit'
 
+# z
+# https://github.com/rupa/zo
+. /etc/profile.d/z.sh
 
 # bash auto-completion
 if [ -f /etc/bash_completion ]; then
