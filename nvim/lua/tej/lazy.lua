@@ -34,6 +34,10 @@ require('lazy').setup(
       end,
     },
     {
+      "shortcuts/no-neck-pain.nvim",
+      version = "*",
+    },
+    {
       "nvim-neo-tree/neo-tree.nvim",
       branch = "v3.x",
       dependencies = {
@@ -179,6 +183,15 @@ require('lazy').setup(
     checker = { enabled = true }, -- Check for updates
   }
 )
+
+require("no-neck-pain").setup({
+    buffers = {
+      colors = {
+        blend = -1,
+        background = "#ffffff",
+    }
+    },
+})
 
 ---
 -- LSP setup
