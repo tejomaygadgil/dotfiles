@@ -102,7 +102,6 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 
     # Start a terminal
     bindsym $mod+f exec $term
-    bindsym $mod+Shift+f exec $term bash
 
     # Start browser
     bindsym $mod+b exec firefox

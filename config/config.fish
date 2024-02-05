@@ -4,34 +4,6 @@ if status is-interactive
     # Clear startup message
     set -g fish_greeting
 
-    # Directory aliases
-    alias dd='cd /home/tejomay/workspace'
-    alias zz='cd /home/tejomay/workspace/notes/zet'
-    set scripts ~/workspace/git/dotfiles/scripts
-
-    # Use latest node
-    nvm use latest
-    alias em='npx embedme'
-    alias ems='npx embedme *.md'
-
-    # Zet
-    alias zet="$scripts/zet.sh"
-
-    # Timer commands
-    alias tt="$scripts/timer.sh"
-    alias tk='kill "$(pgrep timer)"'
-
-    # Apps
-    alias nv='nvim'
-    alias np='nvim -p'
-    alias nf='nvim (fzf)'
-    alias tn='tmux'
-    alias tm='tmux attach'
-    alias mr='~/workspace/git/micro-rest/micro-rest.sh'
-    alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
-    alias rb="$scripts/reset_audio.sh"
-    alias gg='lazygit'
-
     # Configs
     alias fs='nvim ~/workspace/git/dotfiles/config/config.fish'
     alias sf='source ~/workspace/git/dotfiles/config/config.fish'

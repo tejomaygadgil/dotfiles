@@ -1,34 +1,46 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-# Set editor to nvim
-export EDITOR=nvim
-export VISUAL=nvim
-
-# Set scrolling for MS keyboard
-# xinput --set-prop "Microsoft Microsoft® Nano Transceiver v2.0 Mouse" "libinput Natural Scrolling Enabled" 1
-
-# Change default directory
-alias dd='cd /home/tejomay/workspace'
-dd
-
-# Reset bash
-alias eb='exec bash'
-
-# Apps
-alias mr='~/workspace/git/micro-rest/micro-rest.sh'
-alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
-alias rb='~/workspace/git/dotfiles/reset_audio.sh'
-alias lg='lazygit'
-
 # Configs
 alias rc='nvim /home/tejomay/.bashrc'
+alias eb='exec bash'
 
-# Directories
-alias no='cd /home/tejomay/workspace/notes'
-alias sicp='cd /home/tejomay/workspace/notes/swe/sicp'
-alias dot='cd /home/tejomay/workspace/git/dotfiles'
+# nvm
+# https://github.com/nvm-sh/nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+nvm use stable
+
+# Set variables
+export EDITOR=nvim
+export VISUAL=nvim
+export WORKSPACE=~/workspace
+export SCRIPTS="$WORKSPACE/git/dotfiles/scripts"
+export ZET="$WORKSPACE/notes/zet"
+
+# Cd aliases
+alias dd="cd $WORKSPACE"
+alias zz="cd $ZET"
+
+# Zet
+alias zet="$SCRIPTS/zet.sh"
+alias em='npx embedme'
+alias ems='npx embedme *.md'
+
+# Timer
+alias tt="$SCRIPTS/timer.sh"
+alias tk='kill "$(pgrep timer)"'
+
+# App aliases
+alias mr='~/workspace/git/micro-rest/micro-rest.sh'
+alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
+alias rb="$SCRIPTS/reset_audio.sh"
+
+# Proc aliases
+alias nv='nvim'
+alias np='nvim -p'
+alias nf='nvim (fzf)'
+alias tn='tmux'
+alias tm='tmux attach'
+alias gg='lazygit'
+
 
 # bash auto-completion
 if [ -f /etc/bash_completion ]; then
@@ -84,7 +96,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -173,3 +185,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# exec fish
