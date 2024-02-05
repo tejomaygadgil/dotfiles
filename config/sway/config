@@ -96,6 +96,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 
     # Shortcuts
     bindsym $mod+q+s exec flatpak run org.signal.Signal
+    bindsym $mod+q+l exec libreoffice
     bindsym $mod+q+w exec $term nvim ~/workspace/notes/scratch.md
     bindsym $mod+q+g exec zathura ~/workspace/notes/swe/progit.pdf
 
@@ -108,7 +109,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     bindsym $mod+Shift+b exec flatpak run com.google.Chrome
 
     # Start file browser
-    bindsym $mod+Shift+n exec nautilus
+    bindsym $mod+Shift+d exec nautilus
 
     # Start nvim
     bindsym $mod+g exec $term nvim
