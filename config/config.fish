@@ -1,5 +1,14 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+
+    # Clear startup message
+    set -g fish_greeting
+
+    # Directory aliases
+    alias dd='cd /home/tejomay/workspace'
+    alias zz='cd /home/tejomay/workspace/notes/zet'
+    set scripts ~/workspace/git/dotfiles/scripts
+
     # Use latest node
     nvm use latest
     alias em='npx embedme'
@@ -11,10 +20,6 @@ if status is-interactive
 
     # Clear startup message
     set -g fish_greeting
-
-    # Change default directory
-    alias dd='cd /home/tejomay/workspace'
-    # dd
 
     # Apps
     alias nv='nvim'
