@@ -14,20 +14,22 @@ if status is-interactive
     alias em='npx embedme'
     alias ems='npx embedme *.md'
 
-    # Timer commands
-    alias tt='~/workspace/git/dotfiles/scripts/timer.sh'
-    alias tk='kill "$(pgrep timer)"'
+    # Zet
+    alias zet="$scripts/zet.sh"
 
-    # Clear startup message
-    set -g fish_greeting
+    # Timer commands
+    alias tt="$scripts/timer.sh"
+    alias tk='kill "$(pgrep timer)"'
 
     # Apps
     alias nv='nvim'
+    alias np='nvim -p'
+    alias nf='nvim (fzf)'
     alias tn='tmux'
     alias tm='tmux attach'
     alias mr='~/workspace/git/micro-rest/micro-rest.sh'
     alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
-    alias rb='~/workspace/git/dotfiles/scripts/reset_audio.sh'
+    alias rb="$scripts/reset_audio.sh"
     alias gg='lazygit'
 
     # Configs
