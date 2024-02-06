@@ -4,6 +4,7 @@ alias eb='exec bash'
 
 # System aliases
 alias info="info --vi-keys"
+alias unimatrix="unimatrix -afs 90"
 
 # nvm
 # https://github.com/nvm-sh/nvm
