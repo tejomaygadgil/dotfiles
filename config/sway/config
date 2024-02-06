@@ -95,10 +95,10 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     bindsym XF86AudioNext exec playerctl next
 
     # Shortcuts
-    bindsym $mod+q+s exec flatpak run org.signal.Signal
-    bindsym $mod+q+l exec libreoffice
-    bindsym $mod+q+w exec $term nvim ~/workspace/notes/zet/0-inbox.md
-    bindsym $mod+q+g exec zathura ~/workspace/notes/swe/progit.pdf
+    bindsym $mod+Mod1+s exec flatpak run org.signal.Signal
+    bindsym $mod+Mod1+l exec libreoffice
+    bindsym $mod+Mod1+q exec $term nvim ~/workspace/notes/zet/0-inbox.md
+    bindsym $mod+Mod1+z exec $term ~/.config/sway/launch_zet.sh
 
     # Start a terminal
     bindsym $mod+f exec $term
