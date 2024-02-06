@@ -107,20 +107,19 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     bindsym $mod+b exec firefox
     bindsym $mod+Shift+b exec flatpak run com.google.Chrome
 
+    # Start your launcher
+    bindsym $mod+d exec $menu
     # Start file browser
     bindsym $mod+Shift+d exec nautilus
 
     # Start nvim
     bindsym $mod+g exec $term nvim
-
     # Start GPT interface
     bindsym $mod+Shift+g exec $term nvim +GpChatNew
 
     # Kill focused window
     bindsym $mod+Shift+q kill
 
-    # Start your launcher
-    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -212,11 +211,10 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Make the current focus fullscreen
     bindsym $mod+z fullscreen
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
-
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
