@@ -38,7 +38,7 @@ alias rb="$SCRIPTS/reset_audio.sh"
 
 # Proc aliases
 nrg_func() {
-    files=$(rg -l "$1")
+    files=$(rg -lS "$1")
     nvim -p $files
 }
 alias nf='nvim $(fzf)'
