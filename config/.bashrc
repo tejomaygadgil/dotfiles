@@ -2,6 +2,11 @@
 alias rc='nvim /home/tejomay/.bashrc'
 alias eb='exec bash'
 
+# config
+alias wifi='nmtui'
+alias sound='wpctl status'
+alias bluetooth='bluetoothctl'
+
 # System aliases
 alias info="info --vi-keys"
 alias unimatrix="unimatrix -afs 90"
