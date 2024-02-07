@@ -38,12 +38,16 @@ alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
 alias rb="$SCRIPTS/reset_audio.sh"
 
 # Proc aliases
-nrg_func() {
-    files=$(rg -lS "$1")
+nvim_open_using_ripgrep() {
+    files=$(rg -lS "$@")
     nvim -p $files
 }
+nvim_open_modified_and_untracked_git_files() {
+  nvim -p $(git ls-files --others --exclude-standard --modified)
+}
 alias nf='nvim $(fzf)'
-alias nrg=nrg_func
+alias ngm=nvim_open_modified_and_untracked_git_files
+alias nrg=nvim_open_using_ripgrep
 alias tn='tmux'
 alias tm='tmux attach'
 alias gg='lazygit'
