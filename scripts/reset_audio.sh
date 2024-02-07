@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
+
 # https://support.system76.com/articles/audio/
 systemctl --user restart wireplumber pipewire pipewire-pulse
 rm -r ~/.config/pulse
