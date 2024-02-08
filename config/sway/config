@@ -97,7 +97,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Shortcuts
     bindsym $mod+Mod1+s exec flatpak run org.signal.Signal
     bindsym $mod+Mod1+l exec libreoffice
-    bindsym $mod+Mod1+q exec $term nvim ~/workspace/notes/zet/0-inbox.md
+    bindsym $mod+Mod1+q exec $term nvim ~/workspace/notes/zet/0a.md
 
     # Start a terminal
     bindsym $mod+f exec $term
