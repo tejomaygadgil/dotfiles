@@ -8,7 +8,6 @@ function M.move_up()
   end
 end
 
--- Function to move the cursor down
 function M.move_down()
   local current_file = vim.fn.bufname()
   if current_file:sub(-3) == ".md" then
@@ -19,7 +18,6 @@ function M.move_down()
   end
 end
 
--- Function to move the cursor left
 function M.move_left()
   local current_file = vim.fn.bufname()
   if current_file:sub(-3) == ".md" then
@@ -40,7 +38,6 @@ function M.move_left()
   end
 end
 
--- Function to move the cursor right
 function M.move_right()
   local current_file = vim.fn.bufname()
   if current_file:sub(-3) == ".md" then
@@ -57,6 +54,13 @@ function M.move_right()
       end
     end
   end
+end
+
+function M.make()
+  local current_index = vim.fn.bufname():sub(1, -4)
+  local parent_index = current_index:sub(1, -5)
+  vim.cmd('norm i# ' .. current_index .. '\r\r## \r\r[[' .. parent_index .. ']]')
+  vim.cmd('norm kkA')
 end
 
 return M

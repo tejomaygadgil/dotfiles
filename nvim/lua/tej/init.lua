@@ -9,10 +9,11 @@ require("tej.lazy")
 --   end,
 -- })
 
-local dntinet = require('tej.dntinet')
+local lzet = require('tej.lzet')
 
-vim.keymap.set('n', 'zj', dntinet.move_down, { noremap = true, silent = true })
-vim.keymap.set('n', 'zk', dntinet.move_up, { noremap = true, silent = true })
-vim.keymap.set('n', 'zh', dntinet.move_left, { noremap = true, silent = true })
-vim.keymap.set('n', 'zl', dntinet.move_right, { noremap = true, silent = true })
+vim.keymap.set('n', 'zj', lzet.move_down, { noremap = true, silent = true })
+vim.keymap.set('n', 'zk', lzet.move_up, { noremap = true, silent = true })
+vim.keymap.set('n', 'zh', lzet.move_left, { noremap = true, silent = true })
+vim.keymap.set('n', 'zl', lzet.move_right, { noremap = true, silent = true })
+vim.keymap.set('n', 'zm', lzet.make, { noremap = true, silent = true })
 vim.keymap.set('n', 'zT', ':!ls | sort -V<CR>', { noremap = true, silent = true })
