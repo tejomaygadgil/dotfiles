@@ -1,21 +1,12 @@
-# Configs
-alias rc='nvim /home/tejomay/.bashrc'
-alias eb='exec bash'
-
-# config
-alias wifi='nmtui'
-alias sound='wpctl status'
-alias bluetooth='bluetoothctl'
-
-# System aliases
-alias info="info --vi-keys"
-alias unimatrix="unimatrix -afs 90"
-
 # nvm
 # https://github.com/nvm-sh/nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 nvm use stable
+
+# Zet
+alias em='npx embedme'
+alias ems='npx embedme *.md'
 
 # Set variables
 export EDITOR=nvim
@@ -28,16 +19,24 @@ export ZET="$WORKSPACE/notes/zet"
 alias dd="cd $WORKSPACE"
 alias zz="cd $ZET"
 
-# Zet
-alias zet="$SCRIPTS/zet.sh"
-alias em='npx embedme'
-alias ems='npx embedme *.md'
+# Bash
+alias rc="$EDITOR /home/tejomay/.bashrc"
+alias eb='exec bash'
+
+# Config
+alias wifi='nmtui'
+alias sound='wpctl status'
+alias bluetooth='bluetoothctl'
+
+# Change default
+alias info="info --vi-keys"
+alias unimatrix="unimatrix -afs 90"
 
 # Timer
 alias tt="$SCRIPTS/timer.sh"
 alias tk='kill "$(pgrep timer)"'
 
-# App aliases
+# Apps
 alias mr='~/workspace/git/micro-rest/micro-rest.sh'
 alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
 alias rb="$SCRIPTS/reset_audio.sh"
@@ -57,7 +56,7 @@ nvim_open_modified_and_untracked_git_files() {
 alias nf='nvim $(fzf)'
 alias ngm=nvim_open_modified_and_untracked_git_files
 alias nrg=nvim_open_using_ripgrep
-alias nz="zz; nvim"
+alias nz="zz; nvim 0.md"
 alias tn='tmux'
 alias tm='tmux attach'
 alias gg='lazygit'
