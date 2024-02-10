@@ -3,8 +3,10 @@ local M = {}
 function M.move_up()
   local current_file = vim.fn.bufname()
   if current_file:sub(-3) == ".md" then
-    local new_file = current_file:sub(1, -5) .. '.md'
-    vim.cmd('edit ' .. new_file)
+    if #current_file > 4 then
+      local new_file = current_file:sub(1, -5) .. '.md'
+      vim.cmd('edit ' .. new_file)
+    end
   end
 end
 
