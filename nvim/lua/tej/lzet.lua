@@ -60,9 +60,15 @@ end
 
 function M.make()
   local current_index = vim.fn.bufname():sub(1, -4)
-  local parent_index = current_index:sub(1, -5)
-  vim.cmd('norm i# ' .. current_index .. '\r\r## \r\r[[' .. parent_index .. ']]')
-  vim.cmd('norm kkA')
+  local parent_index = vim.fn.bufname():sub(1, -5)
+  vim.cmd('norm i# ' .. current_index .. '\r\r## ')
+  if #parent_index > 0 then
+    vim.cmd('norm i\r\r[[' .. parent_index .. ']]')
+    vim.cmd('norm kkA')
+  else
+    vim.cmd('norm GA')
+  end
+end
 end
 
 return M
