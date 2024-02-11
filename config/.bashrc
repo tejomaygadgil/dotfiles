@@ -42,6 +42,10 @@ alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
 alias rb="$SCRIPTS/reset_audio.sh"
 
 # Proc aliases
+search_wiktionary() {
+  open "https://en.wiktionary.org/w/index.php?search=$@"
+}
+alias wt=search_wiktionary
 go_to_file() {
   cd "$(find . -name "$1" -printf '%h' -quit)"
 }
