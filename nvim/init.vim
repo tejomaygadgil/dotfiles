@@ -5,7 +5,7 @@ iab sc ; #################### ####################<Esc>bhi
 
 " Set shell to bash to prevent vim-slime slowdown
 " https://github.com/jpalardy/vim-slime/issues/204
-set shell=/bin/sh " set default shell
+set shell=/bin/bash " set default shell
 
 " Autoset working directory to current file
 " https://vimways.org/2019/vim-and-the-working-directory/
