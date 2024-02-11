@@ -97,7 +97,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Shortcuts
     bindsym $mod+Mod1+s exec flatpak run org.signal.Signal
     bindsym $mod+Mod1+l exec libreoffice
-    bindsym $mod+Mod1+q exec $term nvim ~/workspace/notes/zet/0a.md
+    bindsym $mod+Mod1+q exec $term nvim ~/workspace/notes/zet/0.md
 
     # Start a terminal
     bindsym $mod+f exec $term
@@ -132,7 +132,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec sway exit
+    bindsym $mod+Mod1+e exec sway exit
 
     # Toggle sway bar
     bindsym $mod+o exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "dock" ] && swaymsg bar mode invisible || swaymsg bar mode dock'
