@@ -69,6 +69,10 @@ function M.make()
     vim.cmd('norm GA')
   end
 end
+
+function M.todo()
+  local ts = require('telescope.builtin')
+  ts.live_grep({ default_text = "\\[0b\\]" })
 end
 
 return M
