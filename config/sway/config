@@ -201,11 +201,11 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
     bindsym $mod+v split toggle
-    bindsym $mod+s split none
+    bindsym $mod+Shift+v split none
 
     # Switch the current container between different layout styles
-    bindsym $mod+w layout toggle all
-    bindsym $mod+e layout toggle
+    bindsym $mod+e layout toggle stacking tabbed
+    bindsym $mod+Shift+e layout toggle splitv splith
 
     # Make the current focus fullscreen
     bindsym $mod+z fullscreen
