@@ -10,6 +10,7 @@ vim.keymap.set('n', '<leader>e', ':Neotree toggle source=last<CR>')
 -- Telescope
 local ts = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', function() ts.find_files({ hidden = true, }) end)
+vim.keymap.set('n', '<leader>fg', function() ts.git_files({ hidden = true, }) end)
 vim.keymap.set('n', '<leader>fe', ts.oldfiles)
 vim.keymap.set('n', '<leader>fs', ts.live_grep)
 vim.keymap.set('n', '<leader>fb', ts.buffers)
@@ -26,7 +27,7 @@ vim.keymap.set("n", "<leader>cp", "V:<C-u>'<,'>GpChatPaste<cr>")
 vim.keymap.set("v", "<leader>cp", ":<C-u>'<,'>GpChatPaste<cr>")
 
 -- Easy picker
-vim.keymap.set('n', '<leader>fg', ':Easypick unstaged_changes<CR>')
+-- vim.keymap.set('n', '<leader>fg', ':Easypick unstaged_changes<CR>')
 
 -- Lazygit / Gitsigns / Fugitive 
 vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
