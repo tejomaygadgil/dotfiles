@@ -85,4 +85,10 @@ function M.todo()
   ts.live_grep({ default_text = "\\[0b\\]" })
 end
 
+function M.children()
+  local current_file = vim.fn.bufname()
+  local ts = require('telescope.builtin')
+  ts.live_grep({ default_text = '# ' .. get_index(current_file) })
+end
+
 return M
