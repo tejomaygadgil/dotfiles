@@ -9,7 +9,7 @@ require("tej.lazy")
 --   end,
 -- })
 
-local lzet = require('tej.lzet')
+local lzet = require('tej.lz')
 
 vim.keymap.set('n', 'zj', lzet.move_down, { noremap = true, silent = true })
 vim.keymap.set('n', 'zk', lzet.move_up, { noremap = true, silent = true })

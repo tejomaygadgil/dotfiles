@@ -3,9 +3,14 @@ local M = {}
 function M.move_up()
   local current_file = vim.fn.bufname()
   if current_file:sub(-3) == ".md" then
-    if #current_file > 4 then
-      local new_file = current_file:sub(1, -5) .. '.md'
-      vim.cmd('edit ' .. new_file)
+    if not current_file:sub(1, -4):match("^%d+$") then
+      if tonumber(current_file:sub(-4, -4)) then
+        local new_file = current_file:sub(1, -4):gsub("(%d+)$","") .. ".md"
+        vim.cmd('edit ' .. new_file)
+      else
+        local new_file = current_file:sub(1, -4):gsub("(%a+)$","") .. ".md"
+        vim.cmd('edit ' .. new_file)
+      end
     end
   end
 end
