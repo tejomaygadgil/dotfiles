@@ -4,13 +4,26 @@ local function get_last_char(file_name)
   return file_name:sub(-4, -4)
 end
 
-local function get_luh_name(file_name)
+local function get_index(file_name)
   return file_name:sub(1, -4)
 end
 
 local function get_parent(file_name)
   local regex = tonumber(get_last_char(file_name)) and "(%d+)$" or "(%a+)$"
-  return get_luh_name(file_name):gsub(regex, "")
+  return get_index(file_name):gsub(regex, "")
+end
+
+local function get_leaf(file_name)
+  local regex = tonumber(get_last_char(file_name)) and "(.*)%a(%d+)$" or "(.*)%d(%a+)$"
+  return get_index(file_name):gsub(regex, "%2")
+end
+
+local function add_to_index(index, amount)
+  if tonumber(index) then
+    return tostring(math.max(tonumber(index) + amount, 0))
+  else
+    return string.char(math.min(math.max(index:byte() + amount, 97), 122))
+  end
 end
 
 local function is_md(file_name)
@@ -18,7 +31,7 @@ local function is_md(file_name)
 end
 
 local function is_root(file_name)
-  return get_luh_name(file_name):match("^%d+$")
+  return get_index(file_name):match("^%d+$")
 end
 
 function M.move_up()
@@ -34,51 +47,29 @@ function M.move_down()
   local current_file = vim.fn.bufname()
   if is_md(current_file) then
     local new_char = tonumber(get_last_char(current_file)) and 'b' or '1'
-    vim.cmd('edit ' .. get_luh_name(current_file) .. new_char .. '.md')
+    vim.cmd('edit ' .. get_index(current_file) .. new_char .. '.md')
   end
 end
 
 function M.move_left()
   local current_file = vim.fn.bufname()
   if is_md(current_file) then
-    local last_char = get_last_char(current_file)
-    if tonumber(last_char) then
-      if last_char ~= '0' then
-        local new_char = tostring(tonumber(last_char) - 1)
-        local new_file = current_file:sub(1, -5) .. new_char .. '.md'
-        vim.cmd('edit ' .. new_file)
-      end
-    else
-      if last_char ~= 'a' then
-        local new_char = string.char(last_char:byte() - 1)
-        local new_file = current_file:sub(1, -5) .. new_char .. '.md'
-        vim.cmd('edit ' .. new_file)
-      end
-    end
+    local parent = is_root(current_file) and '' or get_parent(current_file)
+    vim.cmd('edit ' .. parent .. add_to_index(get_leaf(current_file), -1) .. '.md')
   end
 end
 
 function M.move_right()
   local current_file = vim.fn.bufname()
   if is_md(current_file) then
-    local last_char = get_last_char(current_file)
-    if tonumber(last_char) then
-      local new_char = tostring(tonumber(last_char) + 1)
-      local new_file = current_file:sub(1, -5) .. new_char .. '.md'
-      vim.cmd('edit ' .. new_file)
-    else
-      if last_char ~= 'z' then
-        local new_char = string.char(last_char:byte() + 1)
-        local new_file = current_file:sub(1, -5) .. new_char .. '.md'
-        vim.cmd('edit ' .. new_file)
-      end
-    end
+    local parent = is_root(current_file) and '' or get_parent(current_file)
+    vim.cmd('edit ' .. parent .. add_to_index(get_leaf(current_file), 1) .. '.md')
   end
 end
 
 function M.make()
   local current_file = vim.fn.bufname()
-  local current_index = get_luh_name(current_file)
+  local current_index = get_index(current_file)
   vim.cmd('norm i# ' .. current_index .. '\r\r## ')
   if is_root(current_file) then
     vim.cmd('norm GA')
