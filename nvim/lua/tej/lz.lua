@@ -88,7 +88,25 @@ end
 function M.children()
   local current_file = vim.fn.bufname()
   local ts = require('telescope.builtin')
-  ts.live_grep({ default_text = '# ' .. get_index(current_file) })
+  ts.live_grep({ default_text = '\\[' .. get_index(current_file) .. '\\]' })
+end
+
+function M.copy_index()
+  vim.cmd('norm gg0wyiw'  .. vim.api.nvim_replace_termcodes('<C-o>', true, true, true))
+end
+
+function M.copy()
+  vim.cmd('norm gg0VGy')
+end
+
+function M.cut()
+  M.copy()
+  vim.cmd("call delete(expand('%')) | bdelete!")
+end
+
+function M.paste()
+  M.make()
+  vim.cmd('norm Gp2jdd5kVp6jVd4kpdf]xk$JjV2jdgg0')
 end
 
 return M
