@@ -67,7 +67,7 @@ function M.move_right()
   end
 end
 
-function M.make()
+function M.new()
   local current_file = vim.fn.bufname()
   local current_index = get_index(current_file)
   vim.cmd('norm i# ' .. current_index .. '\r\r## ')
@@ -78,11 +78,6 @@ function M.make()
     vim.cmd('norm i\r\r[[' .. parent_index .. ']]')
     vim.cmd('norm kkA')
   end
-end
-
-function M.todo()
-  local ts = require('telescope.builtin')
-  ts.live_grep({ default_text = "\\[0b\\]" })
 end
 
 function M.children()
@@ -107,6 +102,14 @@ end
 function M.paste()
   M.make()
   vim.cmd('norm Gp2jdd5kVp6jVd4kpdf]xk$JjV2jdgg0')
+end
+
+function M.next_zet()
+  vim.fn.search('[[')
+end
+
+function M.prev_zet()
+  vim.fn.search('[[', 'b')
 end
 
 return M
