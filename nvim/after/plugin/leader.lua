@@ -16,6 +16,7 @@ vim.keymap.set('n', '<leader>fs', ts.live_grep)
 vim.keymap.set('n', '<leader>fb', ts.buffers)
 vim.keymap.set('n', '<leader>th', ts.help_tags, { desc = "help" })
 vim.keymap.set('n', '<leader>tt', ':Telescope<CR>')
+vim.keymap.set('n', '<leader>ts', ts.symbols)
 
 -- GPT
 vim.keymap.set("n", "<leader>cn", ":GpChatNew<cr>")
