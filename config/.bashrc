@@ -58,6 +58,7 @@ nvim_open_using_ripgrep() {
 nvim_open_modified_and_untracked_git_files() {
   nvim -p $(git ls-files --others --exclude-standard --modified)
 }
+alias nv='nvim'
 alias nf='nvim $(fzf)'
 alias ngm=nvim_open_modified_and_untracked_git_files
 alias nrg=nvim_open_using_ripgrep
