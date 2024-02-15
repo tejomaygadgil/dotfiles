@@ -22,3 +22,6 @@
     name = Tejomay Gadgil
 [core]
 	editor = nvim
+
+[maintenance]
+	repo = /home/tejomay/workspace/notes
