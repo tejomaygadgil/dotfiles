@@ -1,21 +1,66 @@
 local M = {}
 
+-- HELPER FUNCTIONS
+-- Primitives
 local function get_last_char(file_name)
   return file_name:sub(-4, -4)
 end
 
-local function get_index(file_name)
+local function get_file_name(file_name)
   return file_name:sub(1, -4)
 end
 
-local function get_parent(file_name)
-  local regex = tonumber(get_last_char(file_name)) and "(%d+)$" or "(%a+)$"
-  return get_index(file_name):gsub(regex, "")
+local function is_last_char_num(file_name)
+    return tonumber(get_last_char(file_name))
 end
 
-local function get_leaf(file_name)
-  local regex = tonumber(get_last_char(file_name)) and "(.*)%a(%d+)$" or "(.*)%d(%a+)$"
-  return get_index(file_name):gsub(regex, "%2")
+-- Selectors
+local function get_current_file()
+  return vim.fn.bufname()
+end
+
+local function get_zet_index()
+  return get_file_name(get_current_file())
+end
+
+local function get_parent()
+  local file_name = get_current_file()
+  local regex = is_last_char_num(file_name) and "(%d+)$" or "(%a+)$"
+  return get_file_name(file_name):gsub(regex, "")
+end
+
+local function get_next_char()
+  return is_last_char_num(get_current_file()) and 'b' or '1'
+end
+
+local function get_leaf()
+  local file_name = get_current_file()
+  local regex = is_last_char_num(file_name) and "(.*)%a(%d+)$" or "(.*)%d(%a+)$"
+  return get_file_name(file_name):gsub(regex, "%2")
+end
+
+-- Predicates
+local function is_md()
+  return get_current_file():sub(-3) == ".md"
+end
+
+local function is_root()
+  return get_file_name(get_current_file()):match("^%d+$")
+end
+
+-- MOVEMENT FUNCTIONS
+function M.move_up()
+  if is_md() then
+    if not is_root() then
+      vim.cmd('edit ' .. get_parent() .. '.md')
+    end
+  end
+end
+
+function M.move_down()
+  if is_md() then
+    vim.cmd('edit ' .. get_zet_index() .. get_next_char() .. '.md')
+  end
 end
 
 local function add_to_index(index, amount)
@@ -26,110 +71,76 @@ local function add_to_index(index, amount)
   end
 end
 
-local function is_md(file_name)
-  return file_name:sub(-3) == ".md"
-end
-
-local function is_root(file_name)
-  return get_index(file_name):match("^%d+$")
-end
-
-function M.move_up()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
-    if not is_root(current_file) then
-      vim.cmd('edit ' .. get_parent(current_file) .. '.md')
-    end
-  end
-end
-
-function M.move_down()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
-    local new_char = tonumber(get_last_char(current_file)) and 'b' or '1'
-    vim.cmd('edit ' .. get_index(current_file) .. new_char .. '.md')
-  end
-end
-
 function M.move_left()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
-    local parent = is_root(current_file) and '' or get_parent(current_file)
-    vim.cmd('edit ' .. parent .. add_to_index(get_leaf(current_file), -1) .. '.md')
+  if is_md() then
+    local parent = is_root() and '' or get_parent()
+    vim.cmd('edit ' .. parent .. add_to_index(get_leaf(), -1) .. '.md')
   end
 end
 
 function M.move_right()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
-    local parent = is_root(current_file) and '' or get_parent(current_file)
-    vim.cmd('edit ' .. parent .. add_to_index(get_leaf(current_file), 1) .. '.md')
+  if is_md() then
+    local parent = is_root() and '' or get_parent()
+    vim.cmd('edit ' .. parent .. add_to_index(get_leaf(), 1) .. '.md')
   end
 end
 
+-- MODIFY ZET FUNCTIONS
 function M.new()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
-    local current_index = get_index(current_file)
-    vim.cmd('norm i# ' .. current_index .. '\r\r## ')
-    if is_root(current_file) then
+  if is_md() then
+    vim.cmd('norm i# ' .. get_zet_index() .. '\r\r## ')
+    if is_root() then
       vim.cmd('norm GA')
     else
-      local parent_index = get_parent(current_file)
-      vim.cmd('norm i\r\r[[' .. parent_index .. ']]')
+      vim.cmd('norm i\r\r[[' .. get_parent() .. ']]')
       vim.cmd('norm kkA')
     end
   end
 end
 
-function M.children()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
-    local ts = require('telescope.builtin')
-    ts.live_grep({ default_text = '\\[' .. get_index(current_file) .. '\\]' })
-  end
-end
-
 function M.copy_index()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
+  if is_md() then
+    -- TODO: Use get_zet_index()
     vim.cmd('norm gg0wyiw' .. vim.api.nvim_replace_termcodes('<C-o>', true, true, true))
   end
 end
 
-function M.copy()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
+function M.copy_zet()
+  if is_md() then
     vim.cmd('norm gg0VGy')
   end
 end
 
-function M.cut()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
-    M.copy()
+function M.cut_zet()
+  if is_md() then
+    M.copy_zet()
     vim.cmd("call delete(expand('%')) | bdelete!")
   end
 end
 
-function M.paste()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
+function M.paste_zet()
+  if is_md() then
     M.new()
     vim.cmd('norm Gp2jdd5kVp6jVd4kpdf]xk$JjV2jdgg0')
   end
 end
 
+-- NAVIGATION FUNCTIONS
+function M.children()
+  if is_md() then
+    local ts = require('telescope.builtin')
+    ts.live_grep({ default_text = '\\[' .. get_zet_index() .. '\\]' })
+  end
+end
+
 function M.next_zet()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
+  if is_md() then
     vim.fn.search('[[')
   end
 end
 
 function M.prev_zet()
-  local current_file = vim.fn.bufname()
-  if is_md(current_file) then
+  if is_md() then
     vim.fn.search('[[', 'b')
   end
 end
