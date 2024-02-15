@@ -31,6 +31,7 @@ alias bluetooth='bluetoothctl'
 # Change default
 alias info="info --vi-keys"
 alias unimatrix="unimatrix -afs 90"
+alias scheme='rlwrap scheme'
 
 # Timer
 alias tt="$SCRIPTS/timer.sh"
