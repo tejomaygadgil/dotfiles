@@ -69,47 +69,69 @@ end
 
 function M.new()
   local current_file = vim.fn.bufname()
-  local current_index = get_index(current_file)
-  vim.cmd('norm i# ' .. current_index .. '\r\r## ')
-  if is_root(current_file) then
-    vim.cmd('norm GA')
-  else
-    local parent_index = get_parent(current_file)
-    vim.cmd('norm i\r\r[[' .. parent_index .. ']]')
-    vim.cmd('norm kkA')
+  if is_md(current_file) then
+    local current_index = get_index(current_file)
+    vim.cmd('norm i# ' .. current_index .. '\r\r## ')
+    if is_root(current_file) then
+      vim.cmd('norm GA')
+    else
+      local parent_index = get_parent(current_file)
+      vim.cmd('norm i\r\r[[' .. parent_index .. ']]')
+      vim.cmd('norm kkA')
+    end
   end
 end
 
 function M.children()
   local current_file = vim.fn.bufname()
-  local ts = require('telescope.builtin')
-  ts.live_grep({ default_text = '\\[' .. get_index(current_file) .. '\\]' })
+  if is_md(current_file) then
+    local ts = require('telescope.builtin')
+    ts.live_grep({ default_text = '\\[' .. get_index(current_file) .. '\\]' })
+  end
 end
 
 function M.copy_index()
-  vim.cmd('norm gg0wyiw'  .. vim.api.nvim_replace_termcodes('<C-o>', true, true, true))
+  local current_file = vim.fn.bufname()
+  if is_md(current_file) then
+    vim.cmd('norm gg0wyiw' .. vim.api.nvim_replace_termcodes('<C-o>', true, true, true))
+  end
 end
 
 function M.copy()
-  vim.cmd('norm gg0VGy')
+  local current_file = vim.fn.bufname()
+  if is_md(current_file) then
+    vim.cmd('norm gg0VGy')
+  end
 end
 
 function M.cut()
-  M.copy()
-  vim.cmd("call delete(expand('%')) | bdelete!")
+  local current_file = vim.fn.bufname()
+  if is_md(current_file) then
+    M.copy()
+    vim.cmd("call delete(expand('%')) | bdelete!")
+  end
 end
 
 function M.paste()
-  M.make()
-  vim.cmd('norm Gp2jdd5kVp6jVd4kpdf]xk$JjV2jdgg0')
+  local current_file = vim.fn.bufname()
+  if is_md(current_file) then
+    M.new()
+    vim.cmd('norm Gp2jdd5kVp6jVd4kpdf]xk$JjV2jdgg0')
+  end
 end
 
 function M.next_zet()
-  vim.fn.search('[[')
+  local current_file = vim.fn.bufname()
+  if is_md(current_file) then
+    vim.fn.search('[[')
+  end
 end
 
 function M.prev_zet()
-  vim.fn.search('[[', 'b')
+  local current_file = vim.fn.bufname()
+  if is_md(current_file) then
+    vim.fn.search('[[', 'b')
+  end
 end
 
 return M
