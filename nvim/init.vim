@@ -1,8 +1,5 @@
 lua require("tej")
 
-" Abbrevations
-iab sc ; #################### ####################<Esc>bhi
-
 " Set shell to bash to prevent vim-slime slowdown
 " https://github.com/jpalardy/vim-slime/issues/204
 set shell=/bin/bash " set default shell
@@ -61,6 +58,10 @@ noremap <F5> :set hlsearch! hlsearch?<CR>
 " https://vi.stackexchange.com/a/2285
 nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
+" Insert date
+noremap <F8> i<C-R>=strftime("%A %-m/%-d/%Y")<CR><Esc>
+inoremap <F8> <C-R>=strftime("%A %-m/%-d/%Y")<CR><Esc>
+
 " Conceal formatting characters for Markdown text
 set conceallevel=2
 
@@ -112,4 +113,3 @@ set scrolloff=8
 set nu rnu
 autocmd InsertEnter * :set nornu
 autocmd InsertLeave * :set nu rnu
-
