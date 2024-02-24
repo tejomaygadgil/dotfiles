@@ -97,7 +97,6 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Shortcuts
     bindsym $mod+Mod1+s exec flatpak run org.signal.Signal
     bindsym $mod+Mod1+l exec libreoffice
-    bindsym $mod+Mod1+q exec $term nvim ~/workspace/notes/zet/0.md
 
     # Start a terminal
     bindsym $mod+f exec $term
@@ -110,11 +109,6 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     bindsym $mod+d exec $menu
     # Start file browser
     bindsym $mod+Shift+d exec nautilus
-
-    # Start nvim
-    bindsym $mod+g exec $term nvim
-    # Start GPT interface
-    bindsym $mod+Shift+g exec $term nvim +GpChatNew
 
     # Kill focused window
     bindsym $mod+Shift+q kill
