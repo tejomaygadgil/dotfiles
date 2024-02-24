@@ -43,6 +43,7 @@ alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
 alias rb="$SCRIPTS/reset_audio.sh"
 
 # Proc aliases
+alias d="sdcv --color"
 search_wiktionary() {
   open "https://en.wiktionary.org/w/index.php?search=$@"
 }
