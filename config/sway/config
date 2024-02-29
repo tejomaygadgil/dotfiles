@@ -22,16 +22,37 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
+# Scrrenshot
+bindsym $mod+Mod1+w exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+Mod1+p exec grim - | wl-copy
+
+# Enable x11 windows
+xwayland enabled
+
+# Hide cursor after 1 second of inactivity
+seat * hide_cursor 1000
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/tejomay/Dropbox/pictures/color4.png fill
+    output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+    # Resolution
+    output eDP-1 mode --custom 1920x1080@59.982Hz scale 1
+    output DP-1 resolution 2560x1440@59.951Hz
+
+    # Clamshell
+    # https://github.com/swaywm/sway/wiki#clamshell-mode
+    set $laptop eDP-1
+    bindswitch --reload --locked lid:on output $laptop disable
+    bindswitch --reload --locked lid:off output $laptop enable
+
+    exec_always ~/.config/sway/clamshell.sh
 
 ### Idle configuration
 #
@@ -60,21 +81,6 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-#
-# Displays:
-#
-    # Resolution
-    output eDP-1 mode --custom 1920x1080@59.982Hz scale 1
-    output DP-1 resolution 2560x1440@59.951Hz
-
-    # Clamshell
-    # https://github.com/swaywm/sway/wiki#clamshell-mode
-    set $laptop eDP-1
-    bindswitch --reload --locked lid:on output $laptop disable
-    bindswitch --reload --locked lid:off output $laptop enable
-
-    exec_always ~/.config/sway/clamshell.sh
-
 ### Key bindings
 #
 # Basics:
@@ -96,6 +102,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
 
     # Shortcuts
     bindsym $mod+Mod1+s exec flatpak run org.signal.Signal
+    bindsym $mod+Mod1+v exec flatpak run com.visualstudio.code
     bindsym $mod+Mod1+l exec libreoffice
 
     # Start a terminal
@@ -161,6 +168,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
@@ -188,6 +196,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
 #
 # Layout stuff:
 #
@@ -236,6 +245,7 @@ output * bg /home/tejomay/Dropbox/pictures/color4.png fill
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
