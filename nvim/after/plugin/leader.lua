@@ -4,6 +4,9 @@ vim.g.mapleader = ' '
 -- No-neck-pain
 vim.keymap.set('n', '<leader>nn', ':NoNeckPain<CR>')
 
+-- Toggle line wrap
+vim.keymap.set('n', '<leader>fw', ':set wrap!<CR>')
+
 -- File explorer
 vim.keymap.set('n', '<leader>e', ':Neotree toggle source=last<CR>')
 
