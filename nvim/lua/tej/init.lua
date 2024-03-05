@@ -1,27 +1,5 @@
 require("tej.lazy")
+require("tej.lz")
 
 -- New tab
 vim.api.nvim_set_keymap('n', '<A-t>', ':tabe<CR><C-o>', { noremap = true, silent = true })
-
--- Lz
-local lz = require('tej.lz')
-vim.keymap.set('n', '<A-j>', lz.move_down, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-k>', lz.move_up, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-h>', lz.move_left, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-l>', lz.move_right, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-n>', lz.new, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-c>', lz.children, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-i>', lz.copy_index, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-x>', lz.cut_zet, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-y>', lz.copy_zet, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-p>', lz.paste_zet, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-f>', lz.next_zet, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-g>', function() vim.cmd('norm gd') end, { noremap = true, silent = true })
-vim.keymap.set('n', '[z', lz.prev_zet, { noremap = true, silent = true })
-vim.keymap.set('n', ']z', lz.next_zet, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-1>', function() vim.cmd('edit $ZET/0.md') end, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-2>', function() vim.cmd('edit $ZET/0b.md') end, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-3>', function() vim.cmd('edit $ZET/0c.md') end, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-4>', function() vim.cmd('edit $ZET/0d.md') end, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-5>', function() vim.cmd('edit $ZET/r.md') end, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-6>', function() vim.cmd('edit $ZET/w.md') end, { noremap = true, silent = true })
