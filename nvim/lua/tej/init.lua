@@ -1,16 +1,10 @@
 require("tej.lazy")
 
--- Open telescope if no files are opened.
--- vim.api.nvim_create_autocmd("VimEnter", {
---   callback = function()
---     if vim.fn.argv(0) == "" then
---       require("telescope.builtin").oldfiles()
---     end
---   end,
--- })
+-- New tab
+vim.api.nvim_set_keymap('n', '<A-t>', ':tabe<CR><C-o>', { noremap = true, silent = true })
 
+-- Lz
 local lz = require('tej.lz')
-
 vim.keymap.set('n', '<A-j>', lz.move_down, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-k>', lz.move_up, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-h>', lz.move_left, { noremap = true, silent = true })
