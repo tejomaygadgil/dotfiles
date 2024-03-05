@@ -11,7 +11,7 @@ local function get_file_name(file_name)
 end
 
 local function is_last_char_num(file_name)
-    return tonumber(get_last_char(file_name))
+  return tonumber(get_last_char(file_name))
 end
 
 -- Selectors
@@ -49,6 +49,16 @@ local function is_root()
 end
 
 -- MOVEMENT FUNCTIONS
+-- Helper
+local function add_to_index(index, amount)
+  if tonumber(index) then
+    return tostring(math.max(tonumber(index) + amount, 0))
+  else
+    return string.char(math.min(math.max(index:byte() + amount, 97), 122))
+  end
+end
+
+-- Core movement functions
 function M.move_up()
   if is_md() then
     if not is_root() then
@@ -60,14 +70,6 @@ end
 function M.move_down()
   if is_md() then
     vim.cmd('edit ' .. get_zet_index() .. get_next_char() .. '.md')
-  end
-end
-
-local function add_to_index(index, amount)
-  if tonumber(index) then
-    return tostring(math.max(tonumber(index) + amount, 0))
-  else
-    return string.char(math.min(math.max(index:byte() + amount, 97), 122))
   end
 end
 
@@ -85,7 +87,7 @@ function M.move_right()
   end
 end
 
--- MODIFY ZET FUNCTIONS
+-- EDITING FUNCTIONS
 function M.new()
   if is_md() then
     vim.cmd('norm i# ' .. get_zet_index() .. '\r\r## ')
@@ -121,7 +123,7 @@ end
 function M.paste_zet()
   if is_md() then
     M.new()
-    vim.cmd('norm Gp2jdd5kVp6jVd4kpdf]xk$JjV2jdgg0')
+    vim.cmd('norm Gp2jdd5kVp6jVd4kpdf]xk$JjV2jdgg0') -- xD
   end
 end
 
