@@ -222,6 +222,20 @@ seat * hide_cursor 1000
     bindsym $mod+a focus parent
     bindsym $mod+Shift+a focus child
 
+    # Popups
+    # https://www.reddit.com/r/swaywm/comments/uwdboi/comment/i9qsirv/
+    for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable;
+    for_window [title="(?:Open|Save) (?:File|Folder|As)"] resize set 800 600
+    for_window [window_role="pop-up"] floating enable
+    for_window [window_role="bubble"] floating enable
+    for_window [window_role="task_dialog"] floating enable
+    for_window [window_role="Preferences"] floating enable
+    for_window [window_type="dialog"] floating enable
+    for_window [window_type="menu"] floating enable
+    # https://www.reddit.com/r/swaywm/comments/uwdboi/comment/i9qu25w/
+    for_window [app_id = "xdg-desktop-portal-gtk"] floating enable;
+    for_window [app_id = "xdg-desktop-portal-gtk"] resize set 700 800;
+
 #
 # Aesthetics
 #
