@@ -34,6 +34,9 @@ require('lazy').setup(
       end,
     },
     {
+      "jbyuki/nabla.nvim",
+    },
+    {
       "shortcuts/no-neck-pain.nvim",
       version = "*",
     },
@@ -102,7 +105,7 @@ require('lazy').setup(
     {
       'nvim-telescope/telescope.nvim',
       tag = '0.1.5',
-      dependencies = { 
+      dependencies = {
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope-symbols.nvim',
       },
