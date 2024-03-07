@@ -32,6 +32,10 @@ alias bluetooth='bluetoothctl'
 alias info="info --vi-keys"
 alias unimatrix="unimatrix -afs 90"
 alias scheme='rlwrap scheme'
+# https://stackoverflow.com/a/47724861
+runscheme () {
+    scheme --quiet < "$1"
+}
 
 # Timer
 alias tt="$SCRIPTS/timer.sh"
@@ -42,31 +46,32 @@ alias mr='~/workspace/git/micro-rest/micro-rest.sh'
 alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
 alias rb="$SCRIPTS/reset_audio.sh"
 
-# Proc aliases
+# Dictionary
+# http://jsomers.net/blog/dictionary
+# https://luxagraf.net/src/how-use-websters-1913-dictionary-linux-edition 
 alias d="sdcv --color"
-search_wiktionary() {
+wt() {
   open "https://en.wiktionary.org/w/index.php?search=$@"
 }
-alias wt=search_wiktionary
-go_to_file() {
-  cd "$(find . -name "$1" -printf '%h' -quit)"
-}
-alias jf=go_to_file
-nvim_open_using_ripgrep() {
-    files=$(rg -lS "$@")
-    nvim -p $files
-}
-nvim_open_modified_and_untracked_git_files() {
-  nvim -p $(git ls-files --others --exclude-standard --modified)
-}
+
+# Proc aliases
 alias nv='nvim'
 alias nf='nvim $(fzf)'
-alias ngm=nvim_open_modified_and_untracked_git_files
-alias nrg=nvim_open_using_ripgrep
 alias nz="zz; nvim 0.md"
 alias tn='tmux'
 alias tm='tmux attach'
 alias gg='lazygit'
+alias i2s='img2sixel'
+jf() {
+  cd "$(find . -name "$1" -printf '%h' -quit)"
+}
+nrg() {
+    files=$(rg -lS "$@")
+    nvim -p $files
+}
+ngm() {
+  nvim -p $(git ls-files --others --exclude-standard --modified)
+}
 
 # z
 # https://github.com/rupa/zo
