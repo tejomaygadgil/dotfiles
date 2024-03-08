@@ -9,7 +9,6 @@ vim.keymap.set('n', '<leader>nn', ':NoNeckPain<CR>')
 -- https://github.com/jbyuki/nabla.nvim/issues/35#issuecomment-1719055459
 local function nabla()
   vim.cmd('lua require"nabla".toggle_virt({autogen = true})')
-  vim.cmd('set wrap')
 end
 vim.keymap.set('n', '<leader>fn', nabla)
 
