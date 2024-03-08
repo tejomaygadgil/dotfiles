@@ -162,7 +162,8 @@ vim.keymap.set('n', '<A-i>', M.copy_index, { noremap = true, silent = true })
 -- Navigation
 vim.keymap.set('n', '<A-c>', M.children, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-f>', M.next_zet, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-g>', function() vim.cmd('norm gd') end, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-S-f>', M.prev_zet, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-CR>', function() vim.cmd('norm gd') end, { noremap = true, silent = true })
 vim.keymap.set('n', '[z', M.prev_zet, { noremap = true, silent = true })
 vim.keymap.set('n', ']z', M.next_zet, { noremap = true, silent = true })
 -- Bookmarks
@@ -172,5 +173,6 @@ vim.keymap.set('n', '<A-3>', function() vim.cmd('edit $ZET/0c.md') end, { norema
 vim.keymap.set('n', '<A-4>', function() vim.cmd('edit $ZET/0d.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-5>', function() vim.cmd('edit $ZET/r.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-6>', function() vim.cmd('edit $ZET/w.md') end, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-u>', function() vim.cmd('edit $ZET/m.md') end, { noremap = true, silent = true })
 
 return M
