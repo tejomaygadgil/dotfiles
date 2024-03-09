@@ -187,9 +187,6 @@ vim.keymap.set('n', '<A-p>', M.paste_zet, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-i>', M.copy_index, { noremap = true, silent = true })
 -- Navigation
 vim.keymap.set('n', '<A-c>', M.children, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-m>', M.bm_notes, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-1>', M.todo, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-7>', M.bm_cfg, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-f>', M.next_zet, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-S-f>', M.prev_zet, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-g>', function() vim.cmd('norm gd') end, { noremap = true, silent = true })
@@ -197,12 +194,14 @@ vim.keymap.set('n', '<A-CR>', function() vim.cmd('norm gd') end, { noremap = tru
 vim.keymap.set('n', '[z', M.prev_zet, { noremap = true, silent = true })
 vim.keymap.set('n', ']z', M.next_zet, { noremap = true, silent = true })
 -- Bookmarks
-vim.keymap.set('n', '<A-0>', function() vim.cmd('edit $ZET/0.md') end, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-2>', function() vim.cmd('edit $ZET/0b.md') end, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-1>', M.todo, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-2>', function() vim.cmd('edit $ZET/0.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-3>', function() vim.cmd('edit $ZET/0c.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-4>', function() vim.cmd('edit $ZET/0d.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-5>', function() vim.cmd('edit $ZET/r.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-6>', function() vim.cmd('edit $ZET/w.md') end, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-7>', M.bm_cfg, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-m>', M.bm_notes, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-u>', function() vim.cmd('edit $ZET/m.md') end, { noremap = true, silent = true })
 
 return M
