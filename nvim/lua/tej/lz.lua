@@ -128,6 +128,31 @@ function M.paste_zet()
 end
 
 -- 4. Navigation functions
+function M.bm_notes()
+  local ts = require('telescope.builtin')
+  ts.live_grep({
+    default_text = 'BM' .. '@',
+    cwd = os.getenv("NOTES")
+  })
+end
+
+function M.bm_cfg()
+  local ts = require('telescope.builtin')
+  ts.live_grep({
+    default_text = 'BM' .. '@',
+    cwd = os.getenv("DOTFILES")
+  })
+end
+
+function M.todo()
+  local ts = require('telescope.builtin')
+  ts.live_grep({
+    default_text = '@' .. 'TODO',
+    cwd = os.getenv("ZET")
+  })
+  vim.cmd("norm <CR>")
+end
+
 function M.children()
   if is_md() then
     local ts = require('telescope.builtin')
@@ -147,6 +172,7 @@ function M.prev_zet()
   end
 end
 
+-- BM@lz
 -- 5. Keymaps
 -- Movement
 vim.keymap.set('n', '<A-j>', M.move_down, { noremap = true, silent = true })
@@ -161,13 +187,16 @@ vim.keymap.set('n', '<A-p>', M.paste_zet, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-i>', M.copy_index, { noremap = true, silent = true })
 -- Navigation
 vim.keymap.set('n', '<A-c>', M.children, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-m>', M.bm_notes, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-1>', M.todo, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-7>', M.bm_cfg, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-f>', M.next_zet, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-S-f>', M.prev_zet, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-CR>', function() vim.cmd('norm gd') end, { noremap = true, silent = true })
 vim.keymap.set('n', '[z', M.prev_zet, { noremap = true, silent = true })
 vim.keymap.set('n', ']z', M.next_zet, { noremap = true, silent = true })
 -- Bookmarks
-vim.keymap.set('n', '<A-1>', function() vim.cmd('edit $ZET/0.md') end, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-0>', function() vim.cmd('edit $ZET/0.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-2>', function() vim.cmd('edit $ZET/0b.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-3>', function() vim.cmd('edit $ZET/0c.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-4>', function() vim.cmd('edit $ZET/0d.md') end, { noremap = true, silent = true })

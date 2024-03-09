@@ -1,3 +1,4 @@
+# BM@rc-head
 # nvm
 # https://github.com/nvm-sh/nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -12,8 +13,10 @@ alias ems='npx embedme *.md'
 export EDITOR=nvim
 export VISUAL=nvim
 export WORKSPACE=~/workspace
-export SCRIPTS="$WORKSPACE/git/dotfiles/scripts"
-export ZET="$WORKSPACE/notes/zet"
+export DOTFILES=$WORKSPACE/git/dotfiles/
+export SCRIPTS="$DOTFILES/scripts"
+export NOTES=$WORKSPACE/notes
+export ZET="$NOTES/zet"
 
 # Cd aliases
 alias dd="cd $WORKSPACE"

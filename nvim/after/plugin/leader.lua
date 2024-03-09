@@ -18,6 +18,7 @@ vim.keymap.set('n', '<leader>fw', ':set wrap!<CR>')
 -- File explorer
 vim.keymap.set('n', '<leader>e', ':Neotree toggle source=last<CR>')
 
+-- BM@leader
 -- Telescope
 local ts = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', function() ts.find_files({ hidden = true, }) end)

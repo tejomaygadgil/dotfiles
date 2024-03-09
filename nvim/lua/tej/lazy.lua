@@ -1,3 +1,4 @@
+-- BM@lazy-head
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
 if not vim.loop.fs_stat(lazypath) then
@@ -114,6 +115,19 @@ require('lazy').setup(
           initial_mode = 'normal',
           layout_strategy = 'vertical',
           preview_cutoff = 0,
+          -- https://github.com/nvim-telescope/telescope.nvim/issues/855
+          vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--hidden",
+            "--smart-case",
+            '--glob', -- this flag allows you to hide exclude these files and folders from your search 👇
+            '!{**/.git/*,**/node_modules/*,**/package-lock.json,**/yarn.lock}',
+          },
         },
       },
     },
@@ -195,12 +209,12 @@ require('lazy').setup(
 )
 
 require("no-neck-pain").setup({
-    buffers = {
-      colors = {
-        blend = -1,
-        background = "#ffffff",
+  buffers = {
+    colors = {
+      blend = -1,
+      background = "#ffffff",
     }
-    },
+  },
 })
 
 ---
