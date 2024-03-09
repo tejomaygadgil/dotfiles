@@ -16,7 +16,7 @@ vim.keymap.set('n', '<leader>fn', nabla)
 vim.keymap.set('n', '<leader>fw', ':set wrap!<CR>')
 
 -- File explorer
-vim.keymap.set('n', '<leader>e', ':Neotree toggle source=last<CR>')
+vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 
 -- BM@leader
 -- Telescope
