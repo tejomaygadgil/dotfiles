@@ -65,8 +65,16 @@ vim.keymap.set({ 'n', 'v' }, '<leader>hl', ':Gitsigns toggle_linehl<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>hn', ':Gitsigns toggle_numhl<CR>')
 
 -- Slime
+-- http://www.nicksun.fun/linux/2020/07/06/slime-time.html
+vim.g.slime_cell_delimiter = "```"
+vim.keymap.set('n', 'sc', '<Plug>SlimeConfig')
+vim.keymap.set('n', 'ss', '<Plug>SlimeSendCell')
 vim.keymap.set('x', 'ss', '<Plug>SlimeRegionSend')
-vim.keymap.set('n', 'ss', '<Plug>SlimeParagraphSend')
+vim.keymap.set('n', 'sl', '<Plug>SlimeLineSend')
+vim.keymap.set('n', 'sp', '<Plug>SlimeParagraphSend')
+vim.keymap.set('n', 's`', '<Plug>SlimeParagraphSend')
+vim.keymap.set('n', '[`', function() vim.fn.search('```\\w', 'b') vim.cmd('norm zz') end, { noremap = true, silent = true })
+vim.keymap.set('n', ']`', function() vim.fn.search('```\\w') vim.cmd('norm zz') end, { noremap = true, silent = true })
 
 -- InspectTree
 -- vim.keymap.set('n', '<leader>t', vim.cmd.InspectTree)
