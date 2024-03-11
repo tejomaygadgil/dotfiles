@@ -128,52 +128,49 @@ function M.paste_zet()
 end
 
 -- 4. Navigation functions
-function M.bm_notes()
+function M.bookmark(mark, dir)
   local ts = require('telescope.builtin')
   ts.live_grep({
-    default_text = 'BM' .. '@',
-    cwd = os.getenv("NOTES")
+    default_text = mark,
+    cwd = os.getenv(dir)
   })
 end
 
-function M.bm_cfg()
-  local ts = require('telescope.builtin')
-  ts.live_grep({
-    default_text = 'BM' .. '@',
-    cwd = os.getenv("DOTFILES")
-  })
-end
+function M.bm_notes() M.bookmark('BM' .. '@', 'NOTES') end
 
-function M.todo()
-  local ts = require('telescope.builtin')
-  ts.live_grep({
-    default_text = '@' .. 'TODO',
-    cwd = os.getenv("ZET")
-  })
-  vim.cmd("norm <CR>")
-end
+function M.bm_cfg() M.bookmark('BM' .. '@', 'DOTFILES') end
 
-function M.children()
+function M.todo() M.bookmark('@' .. 'TODO', 'ZET') end
+
+function M.fav() M.bookmark('FAV'..'@', 'NOTES') end
+
+function M.search_zet() M.bookmark('', 'ZET') end
+
+function M.children() M.bookmark('\\['..get_zet_index()..'\\]', 'ZET') end
+
+function M.search_tag(tag, forward)
   if is_md() then
-    local ts = require('telescope.builtin')
-    ts.live_grep({ default_text = '\\[' .. get_zet_index() .. '\\]' })
+    if forward then
+      vim.fn.search(tag)
+    else
+      vim.fn.search(tag, 'b')
+    end
+  vim.cmd('norm zz')
   end
 end
 
-function M.next_zet()
-  if is_md() then
-    vim.fn.search('[[')
-  end
-end
+function M.next_zet() M.search_tag('[[', true) end
 
-function M.prev_zet()
-  if is_md() then
-    vim.fn.search('[[', 'b')
-  end
-end
+function M.prev_zet() M.search_tag('[[', false) end
+
+function M.next_link() M.search_tag('](', true) end
+
+function M.prev_link() M.search_tag('](', true) end
 
 -- BM@lz
 -- 5. Keymaps
+-- Leader
+vim.keymap.set('n', '<leader>fz', M.search_zet, { noremap = true, silent = true })
 -- Movement
 vim.keymap.set('n', '<A-j>', M.move_down, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-k>', M.move_up, { noremap = true, silent = true })
@@ -193,14 +190,18 @@ vim.keymap.set('n', '<A-g>', function() vim.cmd('norm gd') end, { noremap = true
 vim.keymap.set('n', '<A-CR>', function() vim.cmd('norm gd') end, { noremap = true, silent = true })
 vim.keymap.set('n', '[z', M.prev_zet, { noremap = true, silent = true })
 vim.keymap.set('n', ']z', M.next_zet, { noremap = true, silent = true })
+vim.keymap.set('n', '[l', M.prev_link, { noremap = true, silent = true })
+vim.keymap.set('n', ']l', M.next_link, { noremap = true, silent = true })
 -- Bookmarks
+vim.keymap.set('n', '<A-0>', function() vim.cmd('edit $ZET/0.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-1>', M.todo, { noremap = true, silent = true })
-vim.keymap.set('n', '<A-2>', function() vim.cmd('edit $ZET/0.md') end, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-2>', function() vim.cmd('edit $ZET/0b.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-3>', function() vim.cmd('edit $ZET/0c.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-4>', function() vim.cmd('edit $ZET/0d.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-5>', function() vim.cmd('edit $ZET/r.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-6>', function() vim.cmd('edit $ZET/w.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-7>', M.bm_cfg, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-8>', M.fav, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-m>', M.bm_notes, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-u>', function() vim.cmd('edit $ZET/m.md') end, { noremap = true, silent = true })
 
