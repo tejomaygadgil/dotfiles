@@ -44,11 +44,15 @@ require('lazy').setup(
     {
       'stevearc/oil.nvim',
       opts = {
+        default_file_explorer = false,
         view_options = {
           show_hidden = true,
         },
         win_options = {
           signcolumn = "yes:2",
+        },
+        keymaps = {
+          ["<C-i>"] = "actions.copy_entry_path",
         },
       },
       -- Optional dependencies
@@ -60,7 +64,6 @@ require('lazy').setup(
       dependencies = {
         "stevearc/oil.nvim",
       },
-
       config = true,
     },
     {
