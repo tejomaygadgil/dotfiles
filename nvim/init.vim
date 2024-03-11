@@ -1,3 +1,4 @@
+" BM@initvim-head
 lua require("tej")
 
 " Set shell to bash to prevent vim-slime slowdown
@@ -107,7 +108,7 @@ set ignorecase
 set smartcase
 
 " Improve scroll
-set scrolloff=8
+set scrolloff=4
 
 " Set relative and absolute lines numbers
 set nu rnu
