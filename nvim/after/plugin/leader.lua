@@ -12,6 +12,9 @@ local function nabla()
 end
 vim.keymap.set('n', '<leader>fn', nabla)
 
+-- Markdown preview
+vim.keymap.set('n', '<leader>mp', ':MarkdownPreviewToggle<CR>')
+
 -- Toggle line wrap
 vim.keymap.set('n', '<leader>fw', ':set wrap!<CR>')
 

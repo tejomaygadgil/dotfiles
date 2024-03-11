@@ -19,6 +19,11 @@ endif
 " Map ctrl-s to copy to the system clipboard
 vnoremap <C-s> "+y
 
+" Markdown preview
+let g:mkdp_theme = 'light'
+let g:mkdp_auto_close = 0
+let g:mkdp_combine_preview = 1
+
 " Two column scrolling
 " https://vi.stackexchange.com/a/26876
 let g:TwoColumnsActive = 0
