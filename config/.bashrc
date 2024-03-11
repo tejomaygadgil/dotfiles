@@ -18,6 +18,9 @@ export SCRIPTS="$DOTFILES/scripts"
 export NOTES=$WORKSPACE/notes
 export ZET="$NOTES/zet"
 
+# Spark
+export PYSPARK_DRIVER_PYTHON=ipython
+
 # Cd aliases
 alias dd="cd $WORKSPACE"
 alias zz="cd $ZET"
