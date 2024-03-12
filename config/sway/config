@@ -35,7 +35,7 @@ seat * hide_cursor 1000
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-    output * bg /home/tejomay/Dropbox/pictures/color4.png fill
+    output * bg /home/tejomay/workspace/git/dotfiles/img/color4.png fill
 #
 # Example configuration:
 #
