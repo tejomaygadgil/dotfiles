@@ -1,6 +1,9 @@
 -- Set up leader key
 vim.g.mapleader = ' '
 
+-- Refresh buffer
+vim.keymap.set('n', '<leader>r', ':e!<CR>')
+
 -- No-neck-pain
 vim.keymap.set('n', '<leader>nn', ':NoNeckPain<CR>')
 
