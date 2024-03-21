@@ -113,7 +113,7 @@ set ignorecase
 set smartcase
 
 " Improve scroll
-set scrolloff=4
+set scrolloff=6
 
 " Set relative and absolute lines numbers
 set nu rnu
