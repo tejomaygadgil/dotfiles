@@ -128,6 +128,7 @@ function M.paste_zet()
 end
 
 -- 4. Navigation functions
+-- Find across zet / notes / dotfiles
 function M.bookmark(mark, dir)
   local ts = require('telescope.builtin')
   ts.live_grep({
@@ -136,18 +137,19 @@ function M.bookmark(mark, dir)
   })
 end
 
+function M.todo() M.bookmark('@' .. 'TODO', 'ZET') end
+
 function M.bm_notes() M.bookmark('BM' .. '@', 'NOTES') end
 
 function M.bm_cfg() M.bookmark('BM' .. '@', 'DOTFILES') end
 
-function M.todo() M.bookmark('@' .. 'TODO', 'ZET') end
-
-function M.fav() M.bookmark('FAV'..'@', 'NOTES') end
+function M.fav() M.bookmark('FAV' .. '@', 'NOTES') end
 
 function M.search_zet() M.bookmark('', 'ZET') end
 
-function M.children() M.bookmark('\\['..get_zet_index()..'\\]', 'ZET') end
+function M.children() M.bookmark('\\[' .. get_zet_index() .. '\\]', 'ZET') end
 
+-- Find tags in buffer
 function M.search_tag(tag, forward)
   if is_md() then
     if forward then
@@ -155,7 +157,7 @@ function M.search_tag(tag, forward)
     else
       vim.fn.search(tag, 'b')
     end
-  vim.cmd('norm zz')
+    -- vim.cmd('norm zz')
   end
 end
 
