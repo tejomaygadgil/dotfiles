@@ -1,21 +1,23 @@
 #!/bin/bash
 
-sep=' / '
+sep_start=''
+sep_end=''
+sep='~'
 
-# Datetime
-dow=$(date '+%a')
-week=$(date '+%V')
-date=$(date '+%m-%d-%Y')
-time=$(date '+%H:%M:%S')
-datetime="$time $sep $dow $week $sep $date"
+# Date / time
+dow=`date '+%a'`
+week=`date '+%V'`
+date=`date '+%-m/%d/%Y'`
+time=`date '+%H:%M:%S'`
 
-# Battery level and time left
-battery_dev=$(upower --enumerate | rg BAT)
-level="$(upower --show-info $battery_dev | rg "percentage" | awk '{print $2}')"
-time_left="$(upower --show-info $battery_dev | rg time | awk '{print $4 " " $5}')"
-battery="$level, $time_left"
+# Battery
+battery_dev=`upower --enumerate | rg BAT`
+level=`upower --show-info $battery_dev | rg "percentage" | awk '{print $2}'`
+time_left=`upower --show-info $battery_dev | rg time | awk '{print $4 " " $5}'`
+
+bat="bat $level"
 
 # Volume
-volume="vol: $(amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]%' | awk 'NR==1{print $1}')"
+vol="vol $(amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]%' | awk 'NR==1{print $1}')%"
 
-echo $datetime $sep $volume $sep $battery 
+echo $date $sep $vol $sep $bat $sep $dow $time
