@@ -33,6 +33,8 @@ alias eb='exec bash'
 alias wifi='nmtui'
 alias sound='wpctl status'
 alias bluetooth='bluetoothctl'
+alias sinks='pactl list short sinks'
+alias set-sink='pactl set-default-sink'
 
 # Change default
 alias info="info --vi-keys"
