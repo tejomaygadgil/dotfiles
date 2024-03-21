@@ -22,9 +22,9 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
-# Scrrenshot
+# Screenshot
 bindsym $mod+Mod1+w exec grim -g "$(slurp)" - | wl-copy
-bindsym $mod+Mod1+p exec grim - | wl-copy
+# bindsym $mod+Mod1+p exec grim - | wl-copy
 
 # Enable x11 windows
 xwayland enabled
@@ -104,6 +104,8 @@ seat * hide_cursor 1000
     bindsym $mod+Mod1+s exec flatpak run org.signal.Signal
     bindsym $mod+Mod1+v exec flatpak run com.visualstudio.code
     bindsym $mod+Mod1+l exec libreoffice
+    bindsym $mod+Mod1+o exec obsidian
+    bindsym $mod+Mod1+p exec pavucontrol
 
     # Start a terminal
     bindsym $mod+f exec $term
