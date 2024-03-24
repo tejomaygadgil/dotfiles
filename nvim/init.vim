@@ -1,6 +1,11 @@
 " BM@initvim-head
 lua require("tej")
 
+" Vim terminal
+" https://stackoverflow.com/a/63908546
+autocmd TermOpen * setlocal nonumber norelativenumber
+tnoremap <C-\> <C-\><C-n>
+
 " Window switching
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j

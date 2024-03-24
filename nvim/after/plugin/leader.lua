@@ -4,6 +4,9 @@ vim.g.mapleader = ' '
 -- Refresh buffer
 vim.keymap.set('n', '<leader>r', ':e!<CR>')
 
+-- Open terminal
+vim.keymap.set('n', '<leader>t', ':term<CR>')
+
 -- No-neck-pain
 vim.keymap.set('n', '<leader>nn', ':NoNeckPain<CR>')
 
