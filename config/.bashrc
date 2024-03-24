@@ -37,6 +37,8 @@ alias sinks='pactl list short sinks'
 alias set-sink='pactl set-default-sink'
 
 # Change default
+alias t="tree -L 2"
+alias tt="tree -L 3"
 alias info="info --vi-keys"
 alias unimatrix="unimatrix -afs 90"
 alias scheme='rlwrap scheme'
@@ -46,7 +48,7 @@ runscheme () {
 }
 
 # Timer
-alias tt="$SCRIPTS/timer.sh"
+alias timer="$SCRIPTS/timer.sh"
 alias tk='kill "$(pgrep timer)"'
 
 # Apps
