@@ -1,6 +1,12 @@
 " BM@initvim-head
 lua require("tej")
 
+" Window switching
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " Set shell to bash to prevent vim-slime slowdown
 " https://github.com/jpalardy/vim-slime/issues/204
 set shell=/bin/bash " set default shell
