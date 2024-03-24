@@ -35,6 +35,12 @@ require('lazy').setup(
       end,
     },
     {
+      "samjwill/nvim-unception",
+    },
+    {
+      'jpalardy/vim-slime',
+    },
+    {
       "jbyuki/nabla.nvim",
     },
     {
@@ -198,9 +204,6 @@ require('lazy').setup(
     },
     {
       'mbbill/undotree',
-    },
-    {
-      'jpalardy/vim-slime',
     },
     -- LSP
     { 'williamboman/mason.nvim' },
