@@ -28,6 +28,7 @@ endfunction
 " https://stackoverflow.com/a/63908546
 autocmd TermOpen * setlocal nonumber norelativenumber
 tnoremap <C-\> <C-\><C-n>
+tnoremap <C-q> <C-\><C-n>
 
 " Window switching
 nnoremap <C-h> <C-w>h
