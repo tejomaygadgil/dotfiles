@@ -1,6 +1,9 @@
 -- Set up leader key
 vim.g.mapleader = ' '
 
+-- Dictionary
+vim.keymap.set('n', '<leader>d', 'yiW:new | r !~/dict.sh <C-r>"<CR>gg')
+
 -- Buffer commands
 vim.keymap.set('n', '<leader>br', ':e!<CR>')
 vim.keymap.set('n', '<leader>ba', ':arga<CR>')
