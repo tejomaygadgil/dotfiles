@@ -115,8 +115,14 @@ end
 
 function M.cut_zet()
   if is_md() then
+    vim.cmd('w')
     M.copy_zet()
-    vim.cmd("call delete(expand('%')) | bdelete!")
+    if is_root() then
+      M.move_left()
+    else
+      M.move_up()
+    end
+    vim.cmd("call delete(expand('#')) | bd#")
   end
 end
 
