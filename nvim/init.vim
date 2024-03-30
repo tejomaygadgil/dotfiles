@@ -1,6 +1,9 @@
 " BM@viminit-head
 lua require("tej")
 
+" WSL
+set clipboard=unnamedplus
+
 " Turn off swap warnings
 " https://stackoverflow.com/a/1588848
 set shortmess+=A
