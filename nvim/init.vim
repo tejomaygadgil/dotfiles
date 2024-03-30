@@ -1,4 +1,4 @@
-" BM@initvim-head
+" BM@viminit-head
 lua require("tej")
 
 " Turn off swap warnings
