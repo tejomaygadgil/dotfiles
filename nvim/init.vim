@@ -9,6 +9,20 @@ set shortmess+=A
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
 nnoremap <C-m> :b#<CR>
+cabbrev vbp Vbp
+command Vbp vert sbp
+nnoremap <C-q> :call CycleNext()<CR>
+function! CycleNext()
+  if argc() == 1
+    first
+  elseif argc() > 1
+    if argidx() == argc() - 1
+        first
+    else
+        next
+    endif
+  endif
+endfunction
 
 " Vim terminal
 " https://stackoverflow.com/a/63908546

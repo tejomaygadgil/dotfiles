@@ -1,11 +1,13 @@
 -- Set up leader key
 vim.g.mapleader = ' '
 
--- Refresh buffer
-vim.keymap.set('n', '<leader>r', ':e!<CR>')
+-- Buffer commands
+vim.keymap.set('n', '<leader>br', ':e!<CR>')
+vim.keymap.set('n', '<leader>ba', ':arga<CR>')
+vim.keymap.set('n', '<leader>bd', ':argd<CR>')
 
 -- Open terminal
-vim.keymap.set('n', '<leader>t', ':term<CR>')
+vim.keymap.set('n', '<leader>tn', ':term<CR>')
 
 -- No-neck-pain
 vim.keymap.set('n', '<leader>nn', ':NoNeckPain<CR>')
