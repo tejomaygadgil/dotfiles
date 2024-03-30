@@ -151,6 +151,8 @@ function M.bm_cfg() M.bookmark('BM' .. '@', 'DOTFILES') end
 
 function M.fav() M.bookmark('FAV' .. '@', 'NOTES') end
 
+function M.ref() M.bookmark('@' .. 'REF' .. '=', 'NOTES') end
+
 function M.search_zet() M.bookmark('', 'ZET') end
 
 function M.children() M.bookmark('\\[' .. get_zet_index() .. '\\]', 'ZET') end
@@ -210,6 +212,7 @@ vim.keymap.set('n', '<A-5>', function() vim.cmd('edit $ZET/r.md') end, { noremap
 vim.keymap.set('n', '<A-6>', function() vim.cmd('edit $ZET/w.md') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-7>', M.bm_cfg, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-8>', M.fav, { noremap = true, silent = true })
+vim.keymap.set('n', '<A-9>', M.ref, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-m>', M.bm_notes, { noremap = true, silent = true })
 vim.keymap.set('n', '<A-u>', function() vim.cmd('edit $ZET/m.md') end, { noremap = true, silent = true })
 
