@@ -1,6 +1,11 @@
 " BM@initvim-head
 lua require("tej")
 
+" Flip through open buffers (!!)
+nnoremap <C-n> :bn<CR>
+nnoremap <C-p> :bp<CR>
+nnoremap <C-m> :b#<CR>
+
 " Vim terminal
 " https://stackoverflow.com/a/63908546
 autocmd TermOpen * setlocal nonumber norelativenumber
