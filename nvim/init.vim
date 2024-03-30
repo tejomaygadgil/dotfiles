@@ -1,6 +1,10 @@
 " BM@initvim-head
 lua require("tej")
 
+" Turn off swap warnings
+" https://stackoverflow.com/a/1588848
+set shortmess+=A
+
 " Flip through open buffers (!!)
 nnoremap <C-n> :bn<CR>
 nnoremap <C-p> :bp<CR>
