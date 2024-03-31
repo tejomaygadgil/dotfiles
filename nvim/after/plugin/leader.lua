@@ -12,6 +12,8 @@ vim.keymap.set('n', '<leader>bD', ':b#|bd#<CR>')
 
 -- Open terminal
 vim.keymap.set('n', '<leader>tn', ':term<CR>')
+vim.keymap.set('n', '<leader>tS', ':sp +term<CR>')
+vim.keymap.set('n', '<leader>tV', ':vs +term<CR>')
 
 -- No-neck-pain
 vim.keymap.set('n', '<leader>nn', ':NoNeckPain<CR>')
