@@ -10,6 +10,11 @@ vim.keymap.set('n', '<leader>ba', ':arga<CR>')
 vim.keymap.set('n', '<leader>bd', ':argd<CR>')
 vim.keymap.set('n', '<leader>bD', ':b#|bd#<CR>')
 
+-- File explorer
+vim.keymap.set('n', '<leader>en', ':Oil<CR>')
+vim.keymap.set('n', '<leader>eS', ':sp +Oil<CR>')
+vim.keymap.set('n', '<leader>eV', ':vs +Oil<CR>')
+
 -- Open terminal
 vim.keymap.set('n', '<leader>tn', ':term<CR>')
 vim.keymap.set('n', '<leader>tS', ':sp +term<CR>')
@@ -31,9 +36,6 @@ vim.keymap.set('n', '<leader>mp', ':MarkdownPreviewToggle<CR>')
 
 -- Toggle line wrap
 vim.keymap.set('n', '<leader>fw', ':set wrap!<CR>')
-
--- File explorer
-vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 
 -- BM@leader
 -- Telescope
