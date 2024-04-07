@@ -14,24 +14,26 @@ nnoremap <C-p> :bp<CR>
 nnoremap <C-m> :b#<CR>
 cabbrev vbp Vbp
 command Vbp vert sbp
-nnoremap <C-q> :call CycleNext()<CR>
-function! CycleNext()
-  if argc() == 1
-    first
-  elseif argc() > 1
-    if argidx() == argc() - 1
-        first
-    else
-        next
-    endif
-  endif
-endfunction
+" nnoremap <C-q> :call CycleNext()<CR>
+" function! CycleNext()
+"   if argc() == 1
+"     first
+"   elseif argc() > 1
+"     if argidx() == argc() - 1
+"         first
+"     else
+"         next
+"     endif
+"   endif
+" endfunction
 
 " Vim terminal
 " https://stackoverflow.com/a/63908546
 autocmd TermOpen * setlocal nonumber norelativenumber
 tnoremap <C-\> <C-\><C-n>
 tnoremap <C-q> <C-\><C-n>
+nnoremap <C-\> <C-w><C-w>
+nnoremap <C-q> <C-w><C-w>
 
 " Window switching
 nnoremap <C-h> <C-w>h
