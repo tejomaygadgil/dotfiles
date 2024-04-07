@@ -46,7 +46,7 @@ vim.keymap.set('n', '<leader>fm', function() ts.git_status({ hidden = true, }) e
 vim.keymap.set('n', '<leader>fe', ts.oldfiles)
 vim.keymap.set('n', '<leader>fs', ts.live_grep)
 vim.keymap.set('n', '<leader>bs', function() ts.live_grep({ grep_open_files = true }) end)
-vim.keymap.set('n', '<leader>bt', ':Telescope buffers<CR>iterm<Esc>')
+vim.keymap.set('n', '<leader>bt', ':Telescope buffers<CR>iterm://<Esc>')
 vim.keymap.set('n', '<leader>fb', ts.buffers)
 vim.keymap.set('n', '<leader>th', ts.help_tags, { desc = "help" })
 vim.keymap.set('n', '<leader>tt', ':Telescope<CR>')
