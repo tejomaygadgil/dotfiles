@@ -2,22 +2,20 @@
 
 sep_start=''
 sep_end=''
-sep='~'
+sep=→
 
 # Date / time
 dow=`date '+%a'`
 week=`date '+%V'`
-date=`date '+%-m/%d/%Y'`
+date=`date '+%Y-%m-%d'`
 time=`date '+%H:%M:%S'`
 
 # Battery
 battery_dev=`upower --enumerate | rg BAT`
-level=`upower --show-info $battery_dev | rg "percentage" | awk '{print $2}'`
 time_left=`upower --show-info $battery_dev | rg time | awk '{print $4 " " $5}'`
-
-bat="bat $level"
+bat=`upower --show-info $battery_dev | rg "percentage" | awk '{print $2}'`
 
 # Volume
-vol="vol $(amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]%' | awk 'NR==1{print $1}')%"
+vol="$(amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]%' | awk 'NR==1{print $1}')%"
 
-echo $date $sep $vol $sep $bat $sep $dow $time
+echo -e vol $vol $sep bat $bat $sep $dow $time $sep $date
