@@ -21,6 +21,9 @@ alias sound='wpctl status'
 alias bluetooth='bluetoothctl'
 alias sinks='pactl list short sinks'
 alias set-sink='pactl set-default-sink'
+alias s1="set-sink `sinks | rg pci | awk '{print $1}'`"
+alias s2="set-sink `sinks | rg UMC404HD | awk '{print $1}'`"
+alias s3="set-sink `sinks | rg raop | awk '{print $1}'`"
 # Bash
 alias rc="$EDITOR /home/tejomay/.bashrc"
 alias eb='exec bash'
