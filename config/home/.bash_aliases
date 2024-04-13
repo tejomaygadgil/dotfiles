@@ -15,9 +15,13 @@ alias sound='wpctl status'
 alias bluetooth='bluetoothctl'
 alias sinks='pactl list short sinks'
 alias set-sink='pactl set-default-sink'
-alias s1="set-sink `sinks | rg pci | awk '{print $1}'`"
-alias s2="set-sink `sinks | rg UMC404HD | awk '{print $1}'`"
-alias s3="set-sink `sinks | rg raop | awk '{print $1}'`"
+change_sink() { set-sink `sinks | rg $1 | cut -d$'\t' -f1`; }
+alias s1="change_sink pci" # Laptop speakers
+alias s2="change_sink UMC404HD" # Audio interface
+alias s3="change_sink raop" # OD-11
+alias s4="change_sink E34m_G4" # Monitor speaker
+alias s5="change_sink bluez" # Bluetooth
+
 # Bash
 alias rc="$EDITOR $DOTFILES/config/home/.bash_aliases"
 alias eb='exec bash'
