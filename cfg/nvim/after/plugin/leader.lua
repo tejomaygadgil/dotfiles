@@ -26,6 +26,7 @@ vim.keymap.set('n', '<leader>ez', ':Oil ' .. NOTES .. '/zet/<CR>')
 
 -- Open terminal
 vim.keymap.set('n', '<leader>tn', ':term<CR>')
+vim.keymap.set('n', '<leader>tm', ':term make<CR>')
 vim.keymap.set('n', '<leader>tS', ':sp +term<CR>')
 vim.keymap.set('n', '<leader>tV', ':vs +term<CR>')
 

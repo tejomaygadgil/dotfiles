@@ -23,7 +23,7 @@ alias s4="change_sink E34m_G4" # Monitor speaker
 alias s5="change_sink bluez" # Bluetooth
 
 # Bash
-alias rc="$EDITOR $DOTFILES/config/home/.bash_aliases"
+alias rc="$EDITOR $DOTFILES/cfg/home/.bash_aliases"
 alias eb='exec bash'
 # Cd aliases
 alias dd="cd $WORKSPACE"

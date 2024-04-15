@@ -18,4 +18,7 @@ bat=`upower --show-info $battery_dev | rg "percentage" | awk '{print $2}'`
 # Volume
 vol="$(amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]%' | awk 'NR==1{print $1}')%"
 
-echo -e vol $vol $sep bat $bat $sep $dow $time $sep $date
+# Wifi
+wifi="nmcli | grep 'wlp58s0: connected' | cut -d' ' -f4-"
+
+echo -e net $net $sep vol $vol $sep bat $bat $sep $dow $time $sep $date
