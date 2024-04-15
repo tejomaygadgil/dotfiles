@@ -52,8 +52,8 @@ alias gg='lazygit'
 alias i2s='img2sixel'
 alias info="info --vi-keys"
 alias unimatrix="unimatrix -afs 90"
-alias scheme='rlwrap scheme'
-runscheme () { scheme --quiet < "$1"; } # https://stackoverflow.com/a/47724861
+alias s='rlwrap scheme'
+sr () { scheme --quiet < "$1"; } # https://stackoverflow.com/a/47724861
 # Apps
 alias mr='~/workspace/git/micro-rest/micro-rest.sh'
 alias wo='cd /home/tejomay/workspace/notes/wozu/; python server.py'
