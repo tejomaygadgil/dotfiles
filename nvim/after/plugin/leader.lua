@@ -19,6 +19,10 @@ vim.keymap.set('n', '<leader>bD', ':b#|bd#<CR>')
 vim.keymap.set('n', '<leader>en', ':Oil<CR>')
 vim.keymap.set('n', '<leader>eS', ':sp +Oil<CR>')
 vim.keymap.set('n', '<leader>eV', ':vs +Oil<CR>')
+-- Shortcuts
+local NOTES = os.getenv('NOTES')
+vim.keymap.set('n', '<leader>es', ':Oil ' .. NOTES .. '/swe/sicp/<CR>')
+vim.keymap.set('n', '<leader>ez', ':Oil ' .. NOTES .. '/zet/<CR>')
 
 -- Open terminal
 vim.keymap.set('n', '<leader>tn', ':term<CR>')
@@ -42,7 +46,6 @@ vim.keymap.set('n', '<leader>mp', ':MarkdownPreviewToggle<CR>')
 -- Toggle line wrap
 vim.keymap.set('n', '<leader>fw', ':set wrap!<CR>')
 
--- BM@leader
 -- Telescope
 local ts = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', function() ts.find_files({ hidden = true, }) end)
