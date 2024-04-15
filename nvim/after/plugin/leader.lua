@@ -1,5 +1,10 @@
+-- BM@leader
 -- Set up leader key
 vim.g.mapleader = ' '
+
+-- Eval
+vim.keymap.set('v', '<leader>ep', ":'<,'>!python -c 'import sys; exec(sys.stdin.read())'<CR>")
+vim.keymap.set('v', '<leader>es', ":'<,'>!scheme --quiet < /dev/stdin<CR>")
 
 -- Dictionary
 vim.keymap.set('n', '<leader>d', 'yiW:new | r !~/dict.sh <C-r>"<CR>gg')
