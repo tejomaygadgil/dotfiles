@@ -9,11 +9,11 @@ set clipboard=unnamedplus
 set shortmess+=A
 
 " Flip through open buffers (!!)
-nnoremap <C-n> :bn<CR>
-nnoremap <C-p> :bp<CR>
-nnoremap <C-m> :b#<CR>
+nnoremap <C-\> :bn<CR>
+nnoremap <C-q> :bp<CR>
 cabbrev vbp Vbp
 command Vbp vert sbp
+" nnoremap <C-m> :b#<CR>
 " nnoremap <C-q> :call CycleNext()<CR>
 " function! CycleNext()
 "   if argc() == 1
@@ -30,12 +30,11 @@ command Vbp vert sbp
 " Vim terminal
 " https://stackoverflow.com/a/63908546
 autocmd TermOpen * setlocal nonumber norelativenumber
-tnoremap <C-\> <C-\><C-n>
-tnoremap <C-q> <C-\><C-n>
-nnoremap <C-\> <C-w><C-w>
-nnoremap <C-q> <C-w><C-w>
+tnoremap <C-w>N <C-\><C-n>
 
 " Window switching
+nnoremap <C-n> <C-w><C-w>
+nnoremap <C-p> <C-w>W
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
