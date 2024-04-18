@@ -2,10 +2,6 @@
 -- Set up leader key
 vim.g.mapleader = ' '
 
--- Eval
-vim.keymap.set('v', '<leader>ep', ":'<,'>!python -c 'import sys; exec(sys.stdin.read())'<CR>")
-vim.keymap.set('v', '<leader>es', ":'<,'>!scheme --quiet < /dev/stdin<CR>")
-
 -- Dictionary
 vim.keymap.set('n', '<leader>d', 'yiW:new | r !~/dict.sh <C-r>"<CR>gg')
 
@@ -21,8 +17,14 @@ vim.keymap.set('n', '<leader>eS', ':sp +Oil<CR>')
 vim.keymap.set('n', '<leader>eV', ':vs +Oil<CR>')
 -- Shortcuts
 local NOTES = os.getenv('NOTES')
+vim.keymap.set('n', '<leader>eM', ':e Makefile<CR>')
 vim.keymap.set('n', '<leader>es', ':Oil ' .. NOTES .. '/swe/sicp/<CR>')
 vim.keymap.set('n', '<leader>ez', ':Oil ' .. NOTES .. '/zet/<CR>')
+
+-- Eval
+vim.keymap.set('n', '<leader>em', ":make<CR>")
+vim.keymap.set('v', '<leader>ep', ":'<,'>!python -c 'import sys; exec(sys.stdin.read())'<CR>")
+vim.keymap.set('v', '<leader>es', ":'<,'>!scheme --quiet < /dev/stdin<CR>")
 
 -- Open terminal
 vim.keymap.set('n', '<leader>tn', ':term<CR>')
