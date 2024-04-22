@@ -22,7 +22,7 @@ vim.keymap.set('n', '<leader>es', ':Oil ' .. NOTES .. '/swe/sicp/<CR>')
 vim.keymap.set('n', '<leader>ez', ':Oil ' .. NOTES .. '/zet/<CR>')
 
 -- Eval
-vim.keymap.set('n', '<leader>em', ":make<CR>")
+vim.keymap.set('n', '<leader>em', ":make!<CR>")
 vim.keymap.set('v', '<leader>ep', ":'<,'>!python -c 'import sys; exec(sys.stdin.read())'<CR>")
 vim.keymap.set('v', '<leader>es', ":'<,'>!scheme --quiet < /dev/stdin<CR>")
 
