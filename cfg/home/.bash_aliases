@@ -23,6 +23,8 @@ alias s2="change_sink UMC404HD" # Audio interface
 alias s3="change_sink raop" # OD-11
 alias s4="change_sink E34m_G4" # Monitor speaker
 alias s5="change_sink bluez" # Bluetooth
+bu() { . ~/.config/sway/brightness.sh; mod_brightness +; }
+bd() { . ~/.config/sway/brightness.sh; mod_brightness -; }
 
 # Bash
 alias rc="$EDITOR $DOTFILES/cfg/home/.bash_aliases"

@@ -21,4 +21,8 @@ vol="$(amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]%' | awk 'NR==1{pri
 # Wifi
 wifi="nmcli | grep 'wlp58s0: connected' | cut -d' ' -f4-"
 
-echo -e net $net $sep vol $vol $sep bat $bat $sep $dow $time $sep $date
+# Brightness
+. ~/.config/sway/brightness.sh
+brightness=$(echo "`get_brightness` / $MAX_BRIGHTNESS * 100" | bc -l | awk '{printf "%.f", $1}')%
+
+echo -e vol $vol $sep bat $bat $sep bts $brightness $sep $dow $time $sep $date
