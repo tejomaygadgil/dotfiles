@@ -7,7 +7,7 @@ sep=→
 # Date / time
 dow=`date '+%a'`
 week=`date '+%V'`
-date=`date '+%Y-%m-%d'`
+date=`date '+%m-%d-%Y'`
 time=`date '+%H:%M:%S'`
 
 # Battery
