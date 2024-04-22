@@ -15,6 +15,8 @@ alias sound='wpctl status'
 alias bluetooth='bluetoothctl'
 alias sinks='pactl list short sinks'
 alias set-sink='pactl set-default-sink'
+alias vd='wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-'
+alias vu='wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+'
 change_sink() { set-sink `sinks | rg $1 | cut -d$'\t' -f1`; }
 alias s1="change_sink pci" # Laptop speakers
 alias s2="change_sink UMC404HD" # Audio interface
