@@ -1,6 +1,9 @@
 " BM@viminit-head
 lua require("tej")
 
+" Mouse
+set mouse=a
+
 " WSL
 set clipboard=unnamedplus
 
