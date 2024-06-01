@@ -1,3 +1,14 @@
+# Color aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alhF'
+alias la='ls -a'
+alias l='ls -CF'
+alias tree='tree -C'
+
+
 # BM@aliases-head
 export EDITOR=nvim
 export VISUAL=nvim
