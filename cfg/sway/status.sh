@@ -11,18 +11,9 @@ date=`date '+%m-%d-%Y'`
 time=`date '+%H:%M:%S'`
 
 # Battery
-battery_dev=`upower --enumerate | rg BAT`
-time_left=`upower --show-info $battery_dev | rg time | awk '{print $4 " " $5}'`
-bat=`upower --show-info $battery_dev | rg "percentage" | awk '{print $2}'`
-
+time_left=`pmset -g batt | tail -n 1 | tr '[:space:]' ';' | cut -d ';' -f 8`
+bat=`pmset -g batt | tail -n 1 | tr '[:space:]' ';' | cut -d ';' -f 4`
 # Volume
-vol="$(amixer get Master | awk '$0~/%/{print $5}' | tr -d '[]%' | awk 'NR==1{print $1}')%"
+vol=`osascript -e 'output volume of (get volume settings)'`%
 
-# Wifi
-wifi="nmcli | grep 'wlp58s0: connected' | cut -d' ' -f4-"
-
-# Brightness
-. ~/.config/sway/brightness.sh
-brightness=$(echo "`get_brightness` / $MAX_BRIGHTNESS * 100" | bc -l | awk '{printf "%.f", $1}')%
-
-echo -e vol $vol $sep bat $bat $sep bts $brightness $sep $dow $time $sep $date
+echo -e vol $vol $sep bat $bat $sep $dow $time $sep $date

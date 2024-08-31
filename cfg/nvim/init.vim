@@ -1,17 +1,19 @@
 " BM@viminit-head
 lua require("tej")
 
+" Code folding
+set foldmethod=indent
+set nofoldenable
+
 " Mouse
 set mouse=a
-
-" WSL
-set clipboard=unnamedplus
 
 " Turn off swap warnings
 " https://stackoverflow.com/a/1588848
 set shortmess+=A
 
 " Flip through open buffers (!!)
+nnoremap <Space><Space> :tabn<CR>
 nnoremap <C-\> :bn<CR>
 nnoremap <C-q> :bp<CR>
 cabbrev vbp Vbp
@@ -157,7 +159,7 @@ set smartcase
 " Improve scroll
 set scrolloff=6
 
-" Set relative and absolute lines numbers
-set nu rnu
-autocmd InsertEnter * :set nornu
-autocmd InsertLeave * :set nu rnu
+" " Set relative and absolute lines numbers
+set nu nornu
+" autocmd InsertEnter * :set nornu
+" autocmd InsertLeave * :set nu rnu

@@ -39,7 +39,6 @@ alias tn='tmux'
 alias tm='tmux attach'
 # Misc
 alias gg='lazygit'
-alias info="info --vi-keys"
 alias unimatrix="unimatrix -afs 90"
 alias s='rlwrap scheme'
 sr () { scheme --quiet < "$1"; } # https://stackoverflow.com/a/47724861
