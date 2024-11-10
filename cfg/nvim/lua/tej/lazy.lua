@@ -17,6 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup(
   {
     {
+      'tpope/vim-surround',
+    },
+    {
       'folke/tokyonight.nvim',
       lazy = false,
       priority = 1000,
@@ -278,8 +281,8 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
     'lua_ls',
-    'pyright',
-    'ruff_lsp',
+    -- 'pyright',
+    -- 'ruff_lsp',
     'html',
     'cssls',
     'marksman',
