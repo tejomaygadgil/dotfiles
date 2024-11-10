@@ -16,3 +16,5 @@ source ~/.bash_aliases
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(fzf --bash)"
 export PATH="/opt/homebrew/opt/m4/bin:$PATH"
+
+# psh
