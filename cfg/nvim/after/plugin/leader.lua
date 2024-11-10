@@ -5,6 +5,10 @@ vim.g.mapleader = ' '
 -- Dictionary
 vim.keymap.set('n', '<leader>d', 'yiW:new | r !~/dict.sh <C-r>"<CR>gg')
 
+-- Run
+vim.keymap.set('n', '<leader>rp', '<Esc>:w<CR>:!clear;ipython %<CR>')
+vim.keymap.set('n', '<leader>rs', '<Esc>:w<CR>:!scheme --quiet < %<CR>')
+
 -- Buffer commands
 vim.keymap.set('n', '<leader>br', ':e!<CR>')
 vim.keymap.set('n', '<leader>ba', ':arga<CR>')
