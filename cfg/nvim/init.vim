@@ -5,6 +5,10 @@ lua require("tej")
 set foldmethod=indent
 set nofoldenable
 
+" Vimgrep
+" https://www.reddit.com/r/vim/comments/gmbc03/what_is_the_value_of_your_grepprg_option/
+set grepprg=rg\ --vimgrep
+
 " Mouse
 set mouse=a
 
