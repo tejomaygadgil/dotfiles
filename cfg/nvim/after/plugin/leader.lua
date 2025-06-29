@@ -104,8 +104,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>hn', ':Gitsigns toggle_numhl<CR>')
 -- http://www.nicksun.fun/linux/2020/07/06/slime-time.html
 vim.g.slime_cell_delimiter = "```"
 vim.keymap.set('n', 'sc', '<Plug>SlimeConfig')
-vim.keymap.set('n', 'ss', '<Plug>SlimeSendCell')
-vim.keymap.set('x', 'ss', '<Plug>SlimeRegionSend')
+vim.keymap.set('n', 'se', '<Plug>SlimeSendCell')
+vim.keymap.set('x', 'sv', '<Plug>SlimeRegionSend')
 vim.keymap.set('n', 'sl', '<Plug>SlimeLineSend')
 vim.keymap.set('n', 'sp', '<Plug>SlimeParagraphSend')
 vim.keymap.set('n', 's`', '<Plug>SlimeParagraphSend')
