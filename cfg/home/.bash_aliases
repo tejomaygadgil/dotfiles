@@ -8,7 +8,6 @@ alias la='ls -a'
 alias l='ls -CF'
 alias tree='tree -C'
 
-
 # BM@aliases-head
 export EDITOR=nvim
 export VISUAL=nvim
@@ -18,8 +17,6 @@ export SCRIPTS="$DOTFILES/scripts"
 export NOTES=$WORKSPACE/notes
 export ZET="$NOTES/zet"
 
-alias psh="pipenv shell"
-alias tejomay="cd ~ && pipenv shell"
 # Bash
 alias rc="$EDITOR $DOTFILES/cfg/home/.bash_aliases"
 alias eb='exec bash'
