@@ -1,29 +1,20 @@
 " BM@viminit-head
 lua require("tej")
 
-" Code folding
+" https://stackoverflow.com/a/16743264
 set foldmethod=indent
 set nofoldenable
+set foldcolumn=2
 
 " Vimgrep
 " https://www.reddit.com/r/vim/comments/gmbc03/what_is_the_value_of_your_grepprg_option/
 set grepprg=rg\ --vimgrep
 
-" Mouse
-set mouse=a
-
-" Turn off swap warnings
-" https://stackoverflow.com/a/1588848
-set shortmess+=A
-
 " Flip through open buffers (!!)
-nnoremap <Space><Space> :tabn<CR>
 nnoremap <C-\> :bn<CR>
 nnoremap <C-q> :bp<CR>
 cabbrev vbp Vbp
 command Vbp vert sbp
-" nnoremap <C-m> :b#<CR>
-" nnoremap <C-q> :call CycleNext()<CR>
 " function! CycleNext()
 "   if argc() == 1
 "     first
@@ -49,13 +40,20 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Mouse
+set mouse=a
+
+" Turn off swap warnings
+" https://stackoverflow.com/a/1588848
+set shortmess+=A
+
 " Set shell to bash to prevent vim-slime slowdown
 " https://github.com/jpalardy/vim-slime/issues/204
 set shell=/bin/bash " set default shell
 
 " Autoset working directory to current file
 " https://vimways.org/2019/vim-and-the-working-directory/
-set autochdir
+" set autochdir
 
 " Jump to the last position when reopening a file
 " https://stackoverflow.com/a/774599
@@ -131,10 +129,19 @@ noremap k gk
 " Spelling
 setlocal spell spelllang=en_us
 
-" Vim slime
-let g:slime_target = "tmux"
-" Fix for ipython %cpaste
-let g:slime_bracketed_paste = 1
+" vim-slime
+" https://github.com/jpalardy/vim-slime/blob/main/assets/doc/targets/neovim.md#example-installation-and-configuration-with-lazynvim
+let g:slime_target="neovim"
+let g:slime_input_pid=1
+let g:slime_menu_config=0
+let g:slime_suggest_default=1
+let g:slime_neovim_ignore_unlisted=0
+let g:slime_bracketed_paste = 0
+" https://github.com/jpalardy/vim-slime/issues/211#issuecomment-522007622
+function! _EscapeText_r(text)
+  call system("cat > ~/.slime_r", a:text)
+  return ["source('~/.slime_r', echo = TRUE, max.deparse.length = 4095)\r"]
+endfunction
 
 " Undotree
 let g:undotree_SetFocusWhenToggle = 1
@@ -161,7 +168,7 @@ set ignorecase
 set smartcase
 
 " Improve scroll
-set scrolloff=6
+set scrolloff=4
 
 " " Set relative and absolute lines numbers
 set nu nornu
