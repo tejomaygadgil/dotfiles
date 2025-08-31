@@ -16,9 +16,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup(
   {
-    {
-      'tpope/vim-surround',
-    },
+    "tpope/vim-repeat",
+    "tpope/vim-fugitive",
+    "tpope/vim-surround",
+    "tpope/vim-speeddating",
+    "samjwill/nvim-unception",
+    "numToStr/Comment.nvim",
+    "jpalardy/vim-slime",
+    "chrisbra/csv.vim",
+    "mbbill/undotree",
     {
       'folke/tokyonight.nvim',
       lazy = false,
@@ -38,15 +44,6 @@ require('lazy').setup(
       end,
     },
     {
-      "samjwill/nvim-unception",
-    },
-    {
-      'jpalardy/vim-slime',
-    },
-    {
-      "jbyuki/nabla.nvim",
-    },
-    {
       "iamcco/markdown-preview.nvim",
       cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
       ft = { "markdown" },
@@ -62,6 +59,8 @@ require('lazy').setup(
     {
       'stevearc/oil.nvim',
       opts = {
+        extra_scp_args = { '-O' },
+        silence_scp_warning = true,
         default_file_explorer = false,
         view_options = {
           show_hidden = true,
@@ -94,24 +93,10 @@ require('lazy').setup(
     },
     {
       "refractalize/oil-git-status.nvim",
-
       dependencies = {
         "stevearc/oil.nvim",
       },
       config = true,
-    },
-    {
-      "robitx/gp.nvim",
-      config = {
-        openai_api_key = { "cat", "/Users/tejomay/.config/shell_gpt/.gprc" },
-        chat_confirm_delete = false,
-      }
-    },
-    {
-      'numToStr/Comment.nvim', opts = {}
-    },
-    {
-      'tpope/vim-fugitive',
     },
     {
       'lewis6991/gitsigns.nvim',
@@ -224,9 +209,6 @@ require('lazy').setup(
         })
       end,
     },
-    {
-      'mbbill/undotree',
-    },
     -- LSP
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
@@ -278,25 +260,23 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 require('mason').setup({})
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    'lua_ls',
-    -- 'pyright',
-    -- 'ruff_lsp',
-    'html',
-    'cssls',
-    'marksman',
-  },
-  handlers = {
-    lsp_zero.default_setup,
-    lua_ls = function()
-      -- (Optional) configure lua language server
-      local lua_opts = lsp_zero.nvim_lua_ls()
-      require('lspconfig').lua_ls.setup(lua_opts)
-    end,
-  }
-})
-
+-- require('mason-lspconfig').setup({
+--   ensure_installed = {
+--     'lua_ls',
+--     'html',
+--     'cssls',
+--     'marksman',
+--   },
+--   handlers = {
+--     lsp_zero.default_setup,
+--     lua_ls = function()
+--       -- (Optional) configure lua language server
+--       local lua_opts = lsp_zero.nvim_lua_ls()
+--       require('lspconfig').lua_ls.setup(lua_opts)
+--     end,
+--   }
+-- })
+--
 ---
 -- Autocompletion config
 ---
