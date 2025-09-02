@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup(
   {
+    "kana/vim-textobj-user",
     "tpope/vim-repeat",
     "tpope/vim-fugitive",
     "tpope/vim-surround",

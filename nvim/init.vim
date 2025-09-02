@@ -1,5 +1,26 @@
-" BM@viminit-head
+" BM@init.vim
 lua require("tej")
+
+" Latex textobjects
+" https://github.com/rbonvall/vim-textobj-latex/blob/master/ftplugin/tex/textobj-latex.vim
+call textobj#user#plugin('latex', {
+\  'dollar-math-a': {
+\     '*pattern*': '[$][^$]*[$]',
+\     'select': 'a$',
+\   },
+\  'dollar-math-i': {
+\     '*pattern*': '[$]\zs[^$]*\ze[$]',
+\     'select': 'i$',
+\   },
+\  'emph-a': {
+\     '*pattern*': '[*][^$]*[*]',
+\     'select': 'a*',
+\   },
+\  'emph-i': {
+\     '*pattern*': '[*]\zs[^$]*\ze[*]',
+\     'select': 'i*',
+\   }
+\ })
 
 " https://stackoverflow.com/a/16743264
 set foldmethod=indent
