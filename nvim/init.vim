@@ -158,11 +158,6 @@ let g:slime_menu_config=0
 let g:slime_suggest_default=1
 let g:slime_neovim_ignore_unlisted=0
 let g:slime_bracketed_paste = 0
-" https://github.com/jpalardy/vim-slime/issues/211#issuecomment-522007622
-function! _EscapeText_r(text)
-  call system("cat > ~/.slime_r", a:text)
-  return ["source('~/.slime_r', echo = TRUE, max.deparse.length = 4095)\r"]
-endfunction
 
 " Undotree
 let g:undotree_SetFocusWhenToggle = 1
