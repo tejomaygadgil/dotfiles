@@ -68,3 +68,6 @@ brew install bash \
   make \
   nano \
   # gdb \ # gdb requires further actions to make it work. See `brew info gdb`.
+
+brew tap d12frosted/emacs-plus
+brew install emacs-plus --with-imagemagick --with-xwidgets
