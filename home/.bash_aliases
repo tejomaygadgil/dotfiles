@@ -34,6 +34,7 @@ alias fs="du -sh */"
 alias pd=pushd
 alias ppd=popd
 jf() { pushd `find . -name "$1" -printf '%h' -quit`; }
+alias em="emacsclient -c -n"
 
 # Package
 alias rgf="rg -F --"
