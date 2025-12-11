@@ -27,8 +27,10 @@
 
 ;; R mode (ESS)
 (use-package ess)
-
 (setq ess-style 'RStudio)
+(setq ess-use-flymake nil)
+(setq ess-eval-visibly 'nowait)
+(setq ess-r-package-auto-activate nil) ;; Fix hanging ESS process during lost connection
 
 ;; Autocomplete
 (use-package company
