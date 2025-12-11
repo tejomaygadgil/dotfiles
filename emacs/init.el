@@ -20,6 +20,8 @@
 (setq use-package-always-ensure t)
 
 ;; https://github.com/purcell/exec-path-from-shell?tab=readme-ov-file#usage
+(use-package exec-path-from-shell
+  :ensure t)
 (when (daemonp)
   (exec-path-from-shell-initialize))
 
