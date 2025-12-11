@@ -102,12 +102,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; https://github.com/d12frosted/homebrew-emacs-plus?tab=readme-ov-file#system-appearance-changevsl
 (defun my/apply-theme (appearance)
-  (load-theme 'doom-moonlight t)
-  "Load theme, taking current system APPEARANCE into consideration."
   (mapc #'disable-theme custom-enabled-themes)
   (pcase appearance
     ('light (load-theme 'doom-wilmersdorf t))
-    ('dark  (load-theme 'doom-moonlight t))))
+    ('dark  (load-theme 'doom-moonlight t))
+    (_      (load-theme 'doom-moonlight t))))
 (add-hook 'ns-system-appearance-change-functions #'my/apply-theme)
 
 ;; Apply to new emacsclient frames
