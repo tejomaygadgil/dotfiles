@@ -1,4 +1,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Emacs-Server.html
+(server-start)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; https://www.r-bloggers.com/2022/12/using-emacs-for-r/
 ;; Enable package system and repositories
 (require 'package)
