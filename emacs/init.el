@@ -165,10 +165,9 @@
      "7ec8fd456c0c117c99e3a3b16aaf09ed3fb91879f6601b1ea0eeaee9c6def5d9"
      default))
  '(package-selected-packages
-   '(company cond-let doom-themes drag-stuff ess exec-path-from-shell
-	     helm llama magit markdown-mode multi-vterm ox-pandoc
-	     ox-word pdf-tools use-package-chords use-package-hydra
-	     vterm with-editor)))
+   '(company doom-themes drag-stuff ess exec-path-from-shell git-gutter
+	     helm magit markdown-mode multi-vterm ox-pandoc pdf-tools
+	     sicp ssh texfrag use-package-chords use-package-hydra)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
