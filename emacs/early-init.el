@@ -35,5 +35,5 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Set font
-(add-to-list 'default-frame-alist '(font . "FiraMono Nerd Font Mono-14"))
+(add-to-list 'default-frame-alist '(font . "FiraMono Nerd Font-14"))
 (setq mac-allow-anti-aliasing 2)
