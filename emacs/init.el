@@ -55,6 +55,13 @@
 (use-package helm
   :ensure t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; New iTerm
+(defun iterm-new-window ()
+  (interactive)
+  (let ((cmd "osascript -e 'tell application \"iTerm\" to create window with default profile'"))
+    (shell-command cmd)))
+
 ;; Magit
 (use-package magit
   :ensure t)
