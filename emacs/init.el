@@ -3,6 +3,14 @@
 (server-start)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; https://emacs.stackexchange.com/questions/26560/bookmarking-remote-directories-trampsudo#comment40572_26567
+;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Ad_002dhoc-multi_002dhops.html
+(require 'tramp)
+(customize-set-variable 'tramp-show-ad-hoc-proxies t)
+(customize-set-variable 'tramp-completion-multi-hop-methods
+			`(,tramp-docker-method ,tramp-podman-method))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; https://www.r-bloggers.com/2022/12/using-emacs-for-r/
 ;; Enable package system and repositories
 (require 'package)
@@ -26,7 +34,8 @@
   (exec-path-from-shell-initialize))
 
 ;; R mode (ESS)
-(use-package ess)
+(use-package ess
+  :ensure t)
 (setq ess-style 'RStudio)
 (setq ess-use-flymake nil)
 (setq ess-eval-visibly 'nowait)
@@ -84,6 +93,14 @@
   :config
   (pdf-tools-install))
 
+;; https://stackoverflow.com/a/59017280
+(setq revert-without-query '(".pdf"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; org-mac-link
+(use-package org-mac-link
+  :ensure t)
+
 ;; Org mode pandoc
 (use-package ox-pandoc
   :ensure t)
@@ -91,13 +108,61 @@
 ;; Org-babel
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((R . t)))
+ '((R . t)
+   (python . t)
+   (dot . t)))
 
 (setq org-confirm-babel-evaluate nil)
+
+;; Agenda and refile
+(defun tej/org-pwd-files ()
+  "List all *.org files in current working directory"
+  (directory-files default-directory t "\\.org$")) ; [directory &optional full match] nosort count
+;; https://yiming.dev/blog/2018/03/02/my-org-refile-workflow/
+(defun tej/org-buffers ()
+  "Return the list of `.org` files currently opened in Emacs."
+  (delq nil
+        (mapcar (lambda (x)
+                  (let ((file (buffer-file-name x)))
+                    (if (and file
+			     (string-match "\\.org$" file))
+			file)))
+                (buffer-list))))
+(defun tej/org-targets ()
+  "Return org repository files, open org buffers, and pwd org files (includes current buffer)"
+  (delete-dups
+   (append (directory-files org-directory t "\\.org$") ; org repo files
+	   (tej/org-buffers)                              ; open org buffers
+	   (tej/org-pwd-files))))                         ; pwd org files (includes current buffer)
+;; https://stackoverflow.com/a/63943091
+(defun tej/org-agenda ()
+  (interactive)
+  (let ((org-agenda-files (tej/org-targets)))
+    (org-agenda)))
+
+;; Set params
+(setq org-agenda-files (list org-directory))
+(setq org-refile-targets '((tej/org-targets :maxlevel . 5)))
+(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+(setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+
+;; Org key mappings
+(global-set-key (kbd "C-c l") #'org-store-link)
+;; (global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c a") #'tej/org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+(global-set-key (kbd "C-c g") #'org-mac-link-get-link)
 
 ;; https://github.com/erikriverson/org-mode-R-tutorial/blob/master/org-mode-R-tutorial.org#inserting-r-graphical-output
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
 (add-hook 'org-mode-hook 'org-display-inline-images)
+;; https://stackoverflow.com/a/75086516
+(setq org-display-remote-inline-images t)
+
+;; info:org#Motion
+(setq org-goto-auto-isearch nil)
+
+;; (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; https://github.com/doomemacs/themes?tab=readme-ov-file#manually--use-package
@@ -109,27 +174,31 @@
   (doom-themes-enable-italic t)) ; if nil, italics is universally disabled
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package dimmer
+  :ensure t)
+(dimmer-mode t)
+(setq dimmer-fraction 0.4)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; https://github.com/d12frosted/homebrew-emacs-plus?tab=readme-ov-file#system-appearance-changevsl
-(defun my/apply-theme (appearance)
+(defun tej/apply-theme (appearance)
   (mapc #'disable-theme custom-enabled-themes)
   (pcase appearance
     ('light (load-theme 'doom-wilmersdorf t))
     ('dark  (load-theme 'doom-moonlight t))
     (_      (load-theme 'doom-moonlight t))))
-(add-hook 'ns-system-appearance-change-functions #'my/apply-theme)
-
 ;; Apply to new emacsclient frames
-(defun my/apply-theme-to-frame (frame)
+(defun tej/apply-theme-to-frame (frame)
   (with-selected-frame frame
-    (my/apply-theme ns-system-appearance)))
-
-(add-hook 'after-make-frame-functions #'my/apply-theme-to-frame)
-
+    (tej/apply-theme ns-system-appearance)))
+;; Apply
+(add-hook 'ns-system-appearance-change-functions #'tej/apply-theme)
+(add-hook 'after-make-frame-functions #'tej/apply-theme-to-frame)
 (when (daemonp)
   (add-hook 'after-init-hook
             (lambda ()
               (when (display-graphic-p)
-                (my/apply-theme ns-system-appearance)))))
+                (tej/apply-theme ns-system-appearance)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Mouse mode (https://unix.stackexchange.com/a/406519)
@@ -138,6 +207,7 @@
 ;; Enable column numbers
 (setq column-number-mode t)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'org-mode-hook 'display-line-numbers-mode)
 
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/General-VC-Options.html
 (setq vc-follow-symlinks t)
@@ -162,19 +232,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("8d3ef5ff6273f2a552152c7febc40eabca26bae05bd12bc85062e2dc224cde9a"
-     "1f292969fc19ba45fbc6542ed54e58ab5ad3dbe41b70d8cb2d1f85c22d07e518"
-     "e8bd9bbf6506afca133125b0be48b1f033b1c8647c628652ab7a2fe065c10ef0"
-     "d97ac0baa0b67be4f7523795621ea5096939a47e8b46378f79e78846e0e4ad3d"
-     "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8"
-     "4d5d11bfef87416d85673947e3ca3d3d5d985ad57b02a7bb2e32beaf785a100e"
-     "7ec8fd456c0c117c99e3a3b16aaf09ed3fb91879f6601b1ea0eeaee9c6def5d9"
-     default))
+ '(org-use-property-inheritance t)
  '(package-selected-packages
-   '(company doom-themes drag-stuff ess exec-path-from-shell git-gutter
-	     helm magit markdown-mode multi-vterm ox-pandoc pdf-tools
-	     sicp ssh texfrag use-package-chords use-package-hydra)))
+   '(company dimmer doom-themes drag-stuff ess exec-path-from-shell
+	     git-gutter helm htmlize magit markdown-mode multi-vterm
+	     org-mac-link ox-pandoc pdf-tools sicp ssh
+	     use-package-chords use-package-hydra)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
