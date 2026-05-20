@@ -71,8 +71,8 @@
   (setq dired-listing-switches "-ahlF --time-style=long-iso")
   (setq browse-url-browser-function 'xwidget-webkit-browse-url)
   (setq help-enable-variable-value-editing t)
-  (setq global-auto-revert-non-file-buffers t)
-  (setq auto-revert-remote-files t)
+  ;; (setq global-auto-revert-non-file-buffers t)
+  ;; (setq auto-revert-remote-files t)
   ;; Formatting
   (setq image-auto-resize 'fit-window)
   (setq sentence-end-double-space nil)
@@ -180,14 +180,7 @@
   (pulsar-global-mode t)
   :config
   (setq pulsar-delay 0.002)
-  (setq pulsar-iterations 100)
-  (defun my/pulsar-ns-system-appearance (appearance)
-    (setq pulsar-face
-          (if (string= appearance 'light)
-              'pulsar-magenta
-            'pulsar-generic)))
-  (my/pulsar-ns-system-appearance ns-system-appearance)
-  (add-hook 'ns-system-appearance-change-functions #'my/pulsar-ns-system-appearance))
+  (setq pulsar-iterations 100))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Emacs server
@@ -203,7 +196,7 @@
   :config
   (tab-bar-mode t)
   :bind
-  ("C-S-t" . other-tab-prefix)
+  ("C-S-t" . tab-switcher)
   ("C-M-S-t" . tab-list)
   ("s-t" . tab-new)
   ("s-w" . my/close-tab-or-frame)
@@ -211,14 +204,6 @@
   (defun my/close-tab-or-frame ()
     (interactive) (if (> (length (tab-bar-tabs)) 1)
                       (tab-close) (delete-frame))))
-
-;; Vundo
-(use-package vundo
-  :ensure t
-  :config
-  (setq vundo-compact-display t)
-  :bind
-  ("C-z" . vundo))
 
 ;; Transpose frame
 (use-package transpose-frame
@@ -290,12 +275,6 @@
   ("C-`" . multi-vterm-dedicated-toggle)
   ("C-S-v" . my/multi-vterm-local))
 
-;; iTerm
-(defun iterm-new-window ()
-  (interactive)
-  (let ((cmd "osascript -e 'tell application \"iTerm\" to create window with default profile'"))
-    (shell-command cmd)))
-
 ;; Podman
 (use-package docker
   ;; :bind
@@ -312,7 +291,6 @@
   (projectile-mode t)
   (setq projectile-completion-system 'ivy)
   :bind-keymap
-  ("s-p" . projectile-command-map)
   ("C-x p" . projectile-command-map))
 
 ;; Which-key
@@ -381,6 +359,15 @@
   :config
   (setq dgi-auto-hide-details-p nil)
   (define-key dired-mode-map ")" 'dired-git-info-mode))
+
+;; Dired-rsync
+(use-package dired-rsync
+  :bind (:map dired-mode-map
+              ("C-c C-r" . dired-rsync)))
+
+(use-package dired-rsync-transient
+  :bind (:map dired-mode-map
+              ("C-c C-x" . dired-rsync-transient)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package python
