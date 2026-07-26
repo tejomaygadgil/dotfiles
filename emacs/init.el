@@ -182,6 +182,14 @@
   (setq pulsar-delay 0.002)
   (setq pulsar-iterations 100))
 
+;; Drag-stuff
+(use-package drag-stuff
+  :config
+  (drag-stuff-global-mode t)
+  :bind
+  ("M-p" . drag-stuff-up)
+  ("M-n" . drag-stuff-down))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Emacs server
 (use-package server
@@ -259,6 +267,8 @@
 (use-package vterm
   :commands vterm
   :config
+  (setq vterm-timer-delay 0.01)
+  (setq vterm-shell "/bin/bash")
   (setq vterm-tramp-shells '(("ssh" "/bin/bash")
                              ("scp" login-shell)
                              ("docker" "/bin/bash")
@@ -289,7 +299,11 @@
   (setq projectile-project-search-path '(("~/workspace/" . 10)))
   :config
   (projectile-mode t)
-  (setq projectile-completion-system 'ivy)
+  (defun my/projectile-ivy-completing-read (prompt choices &optional initial-input)
+    (ivy-read prompt choices
+              :initial-input initial-input
+              :caller 'my/projectile-ivy-completing-read))
+  (setq projectile-completion-system #'my/projectile-ivy-completing-read)
   :bind-keymap
   ("C-x p" . projectile-command-map))
 
@@ -314,7 +328,10 @@
   (company-tooltip-align-annotations t)
   (company-idle-delay 0.45)
   (company-minimum-prefix-length 3)
-  (company-tooltip-limit 10))
+  (company-backends '(company-capf company-dabbrev))
+  :bind
+  (:map company-mode-map
+        ("M-TAB" . company-complete)))
 
 ;; Avy
 (use-package avy
