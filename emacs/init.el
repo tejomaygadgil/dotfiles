@@ -74,6 +74,7 @@
   ;; (setq global-auto-revert-non-file-buffers t)
   ;; (setq auto-revert-remote-files t)
   ;; Formatting
+  (setq completions-format 'vertical)
   (setq image-auto-resize 'fit-window)
   (setq sentence-end-double-space nil)
   (setq my/zoom-step 3)
